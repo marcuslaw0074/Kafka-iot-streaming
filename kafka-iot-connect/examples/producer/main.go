@@ -5,7 +5,9 @@ import (
 	"context"
 	"flag"
 	"fmt"
+	"kafka-iot-connect/model"
 	"log"
+	"math/rand"
 	"os"
 	"os/signal"
 	"strings"
@@ -33,7 +35,8 @@ var (
 	recordsRate = metrics.GetOrRegisterMeter("records.rate", nil)
 )
 
-// $ go run main.go -brokers="127.0.0.1:9092" -topic "kafka-streams-bms-test-data" -producers 10 -records-number 10000
+// $ go run main.go -brokers="127.0.0.1:9092" -topic "kafka-streams-bms-test-data" -producers 1 -records-number 10000
+// $ go run main.go -brokers="127.0.0.1:9092" -topic "kafka-streams-bms-data" -producers 1 -records-number 10000
 
 /*
 
@@ -57,7 +60,7 @@ func init() {
 	flag.StringVar(&brokers, "brokers", "", "Kafka bootstrap brokers to connect to, as a comma separated list")
 	flag.StringVar(&version, "version", "3.3.2", "Kafka cluster version")
 	flag.StringVar(&topic, "topic", "", "Kafka topics where records will be copied from topics.")
-	flag.IntVar(&producers, "producers", 10, "Number of concurrent producers")
+	flag.IntVar(&producers, "producers", 1, "Number of concurrent producers")
 	flag.Int64Var(&recordsNumber, "records-number", 10000, "Number of records sent per loop")
 	flag.BoolVar(&verbose, "verbose", false, "Sarama logging")
 	flag.Parse()
@@ -126,8 +129,9 @@ func main() {
 		log.Println("terminating: via signal")
 		keepRunning = false
 	}
+	log.Println("cancel")
 	cancel()
-	wg.Wait()
+	// wg.Wait()
 
 	producerProvider.clear()
 }
@@ -145,8 +149,12 @@ func produceTestRecord(producerProvider *producerProvider) {
 
 	// Produce some records in transaction
 	var i int64
+	var value float64 = 100
 	for i = 0; i < recordsNumber; i++ {
-		producer.Input() <- &sarama.ProducerMessage{Topic: topic, Key: nil, Value: sarama.StringEncoder("test")}
+		// producer.Input() <- &sarama.ProducerMessage{Topic: topic, Key: nil, Value: sarama.StringEncoder("test")}
+		producer.Input() <- &sarama.ProducerMessage{Topic: topic, Key: model.BMSDataTypeEncoder("user1", "elec"), Value: model.BMSRawDataEncoder("user1", 1, value)}
+		value += rand.Float64()*10
+		time.Sleep(time.Second*1)
 	}
 
 	// commit transaction

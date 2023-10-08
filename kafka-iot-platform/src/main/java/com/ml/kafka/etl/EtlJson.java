@@ -128,14 +128,16 @@ public class EtlJson {
         public double value;
         public String id;
         public Long timestamp;
+        public int status;
 
         public BMSEtlData() {
         }
 
-        public BMSEtlData(String id, double value, Long timestamp) {
+        public BMSEtlData(String id, double value, Long timestamp, int status) {
             this.id = id;
             this.value = value;
             this.timestamp = timestamp;
+            this.status = status;
         }
     }
 
@@ -146,6 +148,7 @@ public class EtlJson {
         public String type;
         public String id;
         public Long timestamp;
+        public int status;
 
         // @JsonIgnore
         public double[] values = {};
@@ -192,41 +195,62 @@ public class EtlJson {
 
         public BMSAggregationData agg() {
             double _value;
+            int _status;
             switch (this.type) {
                 case "mean":
                     _value = Arrays.stream(this.values).sum() / this.count;
+                    _status = 1;
                     break;
                 case "sum":
                     _value = Arrays.stream(this.values).sum();
+                    _status = 1;
                     break;
                 case "count":
                     _value = this.count;
+                    _status = 1;
                     break;
                 case "max":
                     try {
                         _value = Arrays.stream(this.values).max().getAsDouble();
+                        _status = 1;
                     } catch (Exception e) {
                         _value = 0;
+                        _status = 0;
                     }
                     break;
                 case "min":
                     try {
                         _value = Arrays.stream(this.values).min().getAsDouble();
+                        _status = 1;
                     } catch (Exception e) {
                         _value = 0;
+                        _status = 0;
                     }
                     break;
                 case "first":
                     _value = this.values[0];
+                    _status = 1;
                     break;
                 case "last":
                     _value = this.values[this.values.length - 1];
+                    _status = 1;
+                    break;
+                case "diff":
+                    if (this.values.length < 2) {
+                        _value = 0;
+                        _status = 0;
+                    } else {
+                        _value = this.values[this.values.length - 1] - this.values[0];
+                        _status = 1;
+                    }
                     break;
                 default:
-                _value = 0;
-                System.out.println("DEFAULT");
+                    _value = 0;
+                    _status = 0;
+                    System.out.println("DEFAULT");
             }
             this.value = _value;
+            this.status = _status;
             return this;
         }
     }
@@ -306,13 +330,14 @@ public class EtlJson {
         final KStream<BMSDataType, BMSRawData> bmsData = builder.stream(stream_name,
                 Consumed.with(new JSONSerde<>(), new JSONSerde<>()));
 
-        Duration timeDifference = Duration.ofSeconds(60);
+        Duration timeDifference = Duration.ofSeconds(2);
         Duration gracePeriod = Duration.ofSeconds(0);
 
         final KStream<BMSDataType, BMSEtlData> bmsProcess = bmsData
                 .filter((key, value) -> "elec".equals(key.itemType))
                 .groupByKey(Grouped.with(new JSONSerde<>(), new JSONSerde<>()))
-                // .windowedBy(SlidingWindows.ofTimeDifferenceAndGrace(timeDifference, gracePeriod))
+                // .windowedBy(SlidingWindows.ofTimeDifferenceAndGrace(timeDifference,
+                // gracePeriod))
                 .windowedBy(SlidingWindows.ofTimeDifferenceWithNoGrace(timeDifference))
                 // .windowedBy(TimeWindows.ofSizeWithNoGrace(Duration.ofSeconds(5)).advanceBy(Duration.ofSeconds(5)))
                 .aggregate(
@@ -321,7 +346,7 @@ public class EtlJson {
                             System.out.println("Start");
                             System.out.println(newValue.toString());
                             System.out.println(aggValue.toString());
-                            aggValue.setType("sum");
+                            aggValue.setType("diff");
                             aggValue.setId(aggKey.id);
                             aggValue.setTimestamp(newValue.timestamp);
                             aggValue.addValues(newValue.value);
@@ -333,12 +358,13 @@ public class EtlJson {
                         Materialized.<BMSDataType, BMSAggregationData, WindowStore<Bytes, byte[]>>as(
                                 "sliding-windowed-aggregated-stream-store-bms-data"))
                 .toStream()
+                .filter(null, null)
                 .map((key, value) -> {
                     // System.out.println(key.toString());
-                    // System.out.println(value.toString());    
-                    return KeyValue.pair(key.key(), new BMSEtlData(value.id, value.value, key.window().end()));
+                    // System.out.println(value.toString());
+                    return KeyValue.pair(key.key(), new BMSEtlData(value.id, value.value, key.window().end(), value.status));
                 });
-        
+
         bmsProcess.to(sink_name);
 
         final KafkaStreams streams = new KafkaStreams(builder.build(), props);
