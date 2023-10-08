@@ -40,6 +40,8 @@ import com.ml.kafka.etl.EtlJson.BMSAggregationData;
 docker exec -it kafka-broker bash   
 
 
+mvn exec:java -Dexec.mainClass=com.ml.kafka.etl.EtlJson
+
 kafka-topics --create \
 --bootstrap-server localhost:9092 \
 --replication-factor 1 \
@@ -304,8 +306,8 @@ public class EtlJson {
         final KStream<BMSDataType, BMSRawData> bmsData = builder.stream(stream_name,
                 Consumed.with(new JSONSerde<>(), new JSONSerde<>()));
 
-        Duration timeDifference = Duration.ofSeconds(1000);
-        Duration gracePeriod = Duration.ofSeconds(10);
+        Duration timeDifference = Duration.ofSeconds(60);
+        Duration gracePeriod = Duration.ofSeconds(0);
 
         final KStream<BMSDataType, BMSEtlData> bmsProcess = bmsData
                 .filter((key, value) -> "elec".equals(key.itemType))
@@ -316,11 +318,12 @@ public class EtlJson {
                 .aggregate(
                         () -> new BMSAggregationData(0, 0),
                         (aggKey, newValue, aggValue) -> {
-                            // System.out.println(aggKey.toString());
                             System.out.println("Start");
                             System.out.println(newValue.toString());
                             System.out.println(aggValue.toString());
                             aggValue.setType("sum");
+                            aggValue.setId(aggKey.id);
+                            aggValue.setTimestamp(newValue.timestamp);
                             aggValue.addValues(newValue.value);
                             aggValue.agg();
                             System.out.println(aggValue.toString());
@@ -331,9 +334,9 @@ public class EtlJson {
                                 "sliding-windowed-aggregated-stream-store-bms-data"))
                 .toStream()
                 .map((key, value) -> {
-                    // System.out.println(key.key().toString());
-                    // System.out.println(value.toString());
-                    return KeyValue.pair(key.key(), new BMSEtlData(value.id, value.value, value.timestamp));
+                    // System.out.println(key.toString());
+                    // System.out.println(value.toString());    
+                    return KeyValue.pair(key.key(), new BMSEtlData(value.id, value.value, key.window().end()));
                 });
         
         bmsProcess.to(sink_name);
@@ -351,6 +354,7 @@ public class EtlJson {
         });
 
         try {
+            streams.cleanUp();
             streams.start();
             latch.await();
         } catch (final Throwable e) {
