@@ -158,34 +158,34 @@ func produceTestRecord(producerProvider *producerProvider) {
 	}
 
 	// commit transaction
-	err = producer.CommitTxn()
-	if err != nil {
-		log.Printf("Producer: unable to commit txn %s\n", err)
-		for {
-			if producer.TxnStatus()&sarama.ProducerTxnFlagFatalError != 0 {
-				// fatal error. need to recreate producer.
-				log.Printf("Producer: producer is in a fatal state, need to recreate it")
-				break
-			}
-			// If producer is in abortable state, try to abort current transaction.
-			if producer.TxnStatus()&sarama.ProducerTxnFlagAbortableError != 0 {
-				err = producer.AbortTxn()
-				if err != nil {
-					// If an error occured just retry it.
-					log.Printf("Producer: unable to abort transaction: %+v", err)
-					continue
-				}
-				break
-			}
-			// if not you can retry
-			err = producer.CommitTxn()
-			if err != nil {
-				log.Printf("Producer: unable to commit txn %s\n", err)
-				continue
-			}
-		}
-		return
-	}
+	// err = producer.CommitTxn()
+	// if err != nil {
+	// 	log.Printf("Producer: unable to commit txn %s\n", err)
+	// 	for {
+	// 		if producer.TxnStatus()&sarama.ProducerTxnFlagFatalError != 0 {
+	// 			// fatal error. need to recreate producer.
+	// 			log.Printf("Producer: producer is in a fatal state, need to recreate it")
+	// 			break
+	// 		}
+	// 		// If producer is in abortable state, try to abort current transaction.
+	// 		if producer.TxnStatus()&sarama.ProducerTxnFlagAbortableError != 0 {
+	// 			err = producer.AbortTxn()
+	// 			if err != nil {
+	// 				// If an error occured just retry it.
+	// 				log.Printf("Producer: unable to abort transaction: %+v", err)
+	// 				continue
+	// 			}
+	// 			break
+	// 		}
+	// 		// if not you can retry
+	// 		err = producer.CommitTxn()
+	// 		if err != nil {
+	// 			log.Printf("Producer: unable to commit txn %s\n", err)
+	// 			continue
+	// 		}
+	// 	}
+	// 	return
+	// }
 	recordsRate.Mark(recordsNumber)
 }
 

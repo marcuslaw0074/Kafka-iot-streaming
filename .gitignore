@@ -25,3 +25,5 @@ replay_pid*
 
 .metals
 target
+test
+.kafka_config

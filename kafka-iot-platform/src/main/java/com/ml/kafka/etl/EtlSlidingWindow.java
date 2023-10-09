@@ -32,7 +32,7 @@ import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import com.ml.kafka.etl.EtlJson.BMSAggregationData;
+import com.ml.kafka.etl.EtlSlidingWindow.BMSAggregationData;
 
 /*
  * 
@@ -40,7 +40,7 @@ import com.ml.kafka.etl.EtlJson.BMSAggregationData;
 docker exec -it kafka-broker bash   
 
 
-mvn exec:java -Dexec.mainClass=com.ml.kafka.etl.EtlJson
+mvn exec:java -Dexec.mainClass=com.ml.kafka.etl.EtlSlidingWindow
 
 kafka-topics --create \
 --bootstrap-server localhost:9092 \
@@ -76,7 +76,7 @@ kafka-console-consumer --bootstrap-server localhost:9092 \
  */
 
 @SuppressWarnings({ "WeakerAccess", "unused" })
-public class EtlJson {
+public class EtlSlidingWindow {
 
     @SuppressWarnings("DefaultAnnotationParam") // being explicit for the example
     @JsonTypeInfo(use = JsonTypeInfo.Id.NAME, include = JsonTypeInfo.As.PROPERTY, property = "_t")
@@ -307,7 +307,7 @@ public class EtlJson {
 
     public static void main(final String[] args) {
 
-        final String application_id = "kafka-stream-etl-json";
+        final String application_id = "kafka-stream-etl-sliding-window";
         final String stream_name = "kafka-streams-bms-data";
         final String sink_name = "kafka-streams-bms-realtime-data";
         final String server = "localhost:9092";
@@ -330,15 +330,13 @@ public class EtlJson {
         final KStream<BMSDataType, BMSRawData> bmsData = builder.stream(stream_name,
                 Consumed.with(new JSONSerde<>(), new JSONSerde<>()));
 
-        Duration timeDifference = Duration.ofSeconds(2);
+        Duration timeDifference = Duration.ofSeconds(4);
         Duration gracePeriod = Duration.ofSeconds(0);
 
         final KStream<BMSDataType, BMSEtlData> bmsProcess = bmsData
                 .filter((key, value) -> "elec".equals(key.itemType))
                 .groupByKey(Grouped.with(new JSONSerde<>(), new JSONSerde<>()))
-                // .windowedBy(SlidingWindows.ofTimeDifferenceAndGrace(timeDifference,
-                // gracePeriod))
-                .windowedBy(SlidingWindows.ofTimeDifferenceWithNoGrace(timeDifference))
+                .windowedBy(SlidingWindows.ofTimeDifferenceAndGrace(timeDifference, gracePeriod))
                 // .windowedBy(TimeWindows.ofSizeWithNoGrace(Duration.ofSeconds(5)).advanceBy(Duration.ofSeconds(5)))
                 .aggregate(
                         () -> new BMSAggregationData(0, 0),
@@ -358,10 +356,8 @@ public class EtlJson {
                         Materialized.<BMSDataType, BMSAggregationData, WindowStore<Bytes, byte[]>>as(
                                 "sliding-windowed-aggregated-stream-store-bms-data"))
                 .toStream()
-                .filter(null, null)
+                .filter((key, value) -> value.status == 1)
                 .map((key, value) -> {
-                    // System.out.println(key.toString());
-                    // System.out.println(value.toString());
                     return KeyValue.pair(key.key(), new BMSEtlData(value.id, value.value, key.window().end(), value.status));
                 });
 

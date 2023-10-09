@@ -1,9 +1,14 @@
 package main
 
 import (
+	"context"
+	"kafka-iot-connect/client/kafka/consumer"
+	"kafka-iot-connect/client/kafka/producer"
 	"kafka-iot-connect/controller"
 	_ "kafka-iot-connect/docs"
+	"kafka-iot-connect/model"
 
+	"github.com/IBM/sarama"
 	"github.com/gin-gonic/gin"
 	"github.com/swaggo/files"
 	"github.com/swaggo/gin-swagger"
@@ -30,6 +35,17 @@ import (
 // @externalDocs.description  OpenAPI
 // @externalDocs.url          https://swagger.io/resources/open-api/
 func main() {
+	kp := producer.InitializeKafkaConnectProducer("localhost:9092", "3.3.2", true, 1)
+	kp.Produce(
+		&sarama.ProducerMessage{Topic: "kafka-streams-energy-raw-data", Key: model.BMSDataTypeEncoder("user1", "elec"), Value: model.BMSRawDataEncoder("user1", 1, 839.543)},
+		&sarama.ProducerMessage{Topic: "kafka-streams-energy-raw-data", Key: model.BMSDataTypeEncoder("user1", "elec"), Value: model.BMSRawDataEncoder("user1", 1, 869.543)},
+	)
+
+	kc := consumer.InitializeKafkaConnectConsumer("localhost:9092", "3.3.2", "example", "range", true, true)
+	kc.Consume(context.Background(), "kafka-streams-energy-realtime-data", func(cm *sarama.ConsumerMessage) error {
+		return nil
+	})
+
 	r := gin.Default()
 
 	c := controller.NewController()
