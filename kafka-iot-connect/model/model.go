@@ -5,6 +5,33 @@ import (
 	"time"
 )
 
+func TimeseriesDataEncoder(id, value, time string) TimeseriesData {
+	return TimeseriesData{
+		Id:    id,
+		Value: value,
+		Time:  time,
+	}
+}
+
+type TimeseriesData struct {
+	Id    string `json:"id"`
+	Value string `json:"value"`
+	Time  string `json:"time"`
+}
+
+func (b TimeseriesData) Encode() ([]byte, error) {
+	return json.Marshal(b)
+}
+
+func (b TimeseriesData) Length() int {
+	bb, err := json.Marshal(b)
+	if err != nil {
+		return 0
+	} else {
+		return len(bb)
+	}
+}
+
 func BMSRawDataEncoder(id string, status int8, value float64) BMSRawData {
 	return BMSRawData{
 		T:         "bms.raw",
@@ -49,7 +76,6 @@ func BMSDataTypeEncoder(id, itemType string) BMSDataType {
 		ItemType: itemType,
 	}
 }
-
 
 func (b BMSDataType) Encode() ([]byte, error) {
 	return json.Marshal(b)

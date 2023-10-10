@@ -23,4 +23,4 @@ RUN go mod download && go mod verify
 COPY . .
 RUN go build .
 
-CMD ["./kafka-iot-connect"]
+CMD ["go", "run", "."]

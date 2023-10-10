@@ -1,0 +1,55 @@
+{
+  "interval": 200000,
+  "data": [
+    {
+      "_t": "timeseries",
+      "data": [
+        {
+          "id": "esg/NF/Mills/electricity/Device1:Analog_Value_M6_ACB_T4_1_total_kWh",
+          "value": "1311853.25",
+          "time": "2023-10-09T13:17:43.000Z"
+        },
+        {
+          "id": "esg/NF/Mills/electricity/Device1:Analog_Value_M6_ACB_T4_2_total_kWh",
+          "value": "335800.5",
+          "time": "2023-10-09T13:17:43.000Z"
+        },
+        {
+          "id": "esg/NF/Mills/electricity/Device1:Analog_Value_M6_ACB_T4_total_kWh",
+          "value": "7027822.5",
+          "time": "2023-10-09T13:17:43.000Z"
+        },
+        {
+          "id": "esg/NF/Mills/electricity/Device1:Analog_Value_M6_Shop104_total_kWh",
+          "value": "955.86",
+          "time": "2023-10-09T13:17:43.000Z"
+        }
+      ]
+    },
+    {
+      "_t": "timeseries",
+      "data": [
+        {
+          "id": "esg/NF/Mills/electricity/Device1:Analog_Value_M6_ACB_T4_1_total_kWh",
+          "value": "1313853.25",
+          "time": "2023-10-09T13:17:43.000Z"
+        },
+        {
+          "id": "esg/NF/Mills/electricity/Device1:Analog_Value_M6_ACB_T4_2_total_kWh",
+          "value": "336800.5",
+          "time": "2023-10-09T13:17:43.000Z"
+        },
+        {
+          "id": "esg/NF/Mills/electricity/Device1:Analog_Value_M6_ACB_T4_total_kWh",
+          "value": "7029822.5",
+          "time": "2023-10-09T13:17:43.000Z"
+        },
+        {
+          "id": "esg/NF/Mills/electricity/Device1:Analog_Value_M6_Shop104_total_kWh",
+          "value": "9355.86",
+          "time": "2023-10-09T13:17:43.000Z"
+        }
+      ]
+    }
+  ]
+}

@@ -20,7 +20,7 @@ services:
       driver: "json-file"
       options:
         max-size: "50m"
-    command: sleep 1000
+    command: go run .
 
 networks:
   kafka-iot-connect:
