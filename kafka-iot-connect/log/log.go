@@ -277,3 +277,11 @@ func (myLogger *MyFileLogger) Log(level int, msg string, a ...interface{}) error
 func (myLogger *MyFileLogger) LogInfo(pkg any, a ...interface{}) error {
 	return myLogger.Log(LogInfo, reflect.TypeOf(pkg).PkgPath(), a...)
 }
+
+func (myLogger *MyFileLogger) LogLim(level int, pkg, msg string, limit int) error {
+	if len(msg) <= limit {
+		return myLogger.Log(level, pkg, msg)
+	} else {
+		return myLogger.Log(level, pkg, msg[:limit])
+	}
+}
