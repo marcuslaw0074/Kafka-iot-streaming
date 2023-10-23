@@ -9,7 +9,7 @@ import (
 	"github.com/IBM/sarama"
 )
 
-func initializeKafkaConnet() {
+func initializeKafkaConnect() {
 	kp := producer.InitializeKafkaConnectProducer("localhost:9092", "3.3.2", true, 1)
 	kp.Produce(
 		&sarama.ProducerMessage{Topic: "kafka-streams-energy-raw-data", Key: model.BMSDataTypeEncoder("user1", "elec"), Value: model.BMSRawDataEncoder("user1", 1, 839.543)},

@@ -6,8 +6,8 @@ import (
 	"log"
 
 	"github.com/gin-gonic/gin"
-	"github.com/swaggo/files"
-	"github.com/swaggo/gin-swagger"
+	swaggerFiles "github.com/swaggo/files"
+	ginSwagger "github.com/swaggo/gin-swagger"
 ) // gin-swagger middleware
 // swagger embed files
 
@@ -33,12 +33,12 @@ import (
 func main() {
 
 	go func() {
-		defer func ()  {
+		defer func() {
 			if err := recover(); err != nil {
 				log.Printf("Error occur: %v", err)
 			}
 		}()
-		initializeKafkaConnet()
+		initializeKafkaConnect()
 	}()
 
 	r := gin.Default()
