@@ -153,8 +153,11 @@ func produceTestRecord(producerProvider *producerProvider) {
 	for i = 0; i < recordsNumber; i++ {
 		// producer.Input() <- &sarama.ProducerMessage{Topic: topic, Key: nil, Value: sarama.StringEncoder("test")}
 		producer.Input() <- &sarama.ProducerMessage{Topic: topic, Key: model.BMSDataTypeEncoder("user1", "elec"), Value: model.BMSRawDataEncoder("user1", 1, value)}
+		producer.Input() <- &sarama.ProducerMessage{Topic: topic, Key: model.BMSDataTypeEncoder("user2", "elec"), Value: model.BMSRawDataEncoder("user2", 1, value)}
+		producer.Input() <- &sarama.ProducerMessage{Topic: topic, Key: model.BMSDataTypeEncoder("user3", "elec"), Value: model.BMSRawDataEncoder("user3", 1, value)}
 		value += rand.Float64()*10
-		time.Sleep(time.Second*3)
+		time.Sleep(time.Second*2)
+		fmt.Println(i, value)
 	}
 
 	// commit transaction

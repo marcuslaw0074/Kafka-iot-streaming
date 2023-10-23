@@ -1,6 +1,6 @@
 package redis
 
-import "github.com/redis/rueidis"
+import "github.com/rueian/rueidis"
 
 type RedisTimeSeriesClient struct {
 	Host      string

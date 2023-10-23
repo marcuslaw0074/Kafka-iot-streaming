@@ -87,3 +87,15 @@ func ReverseKeyValue[V comparable, K comparable](m map[K]V) map[V]K {
 	}
 	return mm
 }
+
+func RemoveDuplicate[S ~[]T, T comparable](sliceList S) S {
+    allKeys := make(map[T]bool)
+    list := []T{}
+    for _, item := range sliceList {
+        if _, value := allKeys[item]; !value {
+            allKeys[item] = true
+            list = append(list, item)
+        }
+    }
+    return list
+}

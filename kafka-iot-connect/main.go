@@ -1,9 +1,9 @@
 package main
 
 import (
+	"context"
 	"kafka-iot-connect/controller"
 	_ "kafka-iot-connect/docs"
-	"log"
 
 	"github.com/gin-gonic/gin"
 	swaggerFiles "github.com/swaggo/files"
@@ -32,14 +32,20 @@ import (
 // @externalDocs.url          https://swagger.io/resources/open-api/
 func main() {
 
-	go func() {
-		defer func() {
-			if err := recover(); err != nil {
-				log.Printf("Error occur: %v", err)
-			}
-		}()
-		initializeKafkaConnect()
-	}()
+	// go func() {
+	// 	defer func() {
+	// 		if err := recover(); err != nil {
+	// 			log.Printf("Error occur: %v", err)
+	// 		}
+	// 	}()
+	// 	// initializeKafkaConnect()
+	// 	ctx := context.Background()
+	// 	initializeMqttConnectClient(ctx)
+	// }()
+
+	ctx := context.Background()
+	go initializeMqttConnectClient(ctx)
+	go initializeKafkaConnectClient(ctx)
 
 	r := gin.Default()
 

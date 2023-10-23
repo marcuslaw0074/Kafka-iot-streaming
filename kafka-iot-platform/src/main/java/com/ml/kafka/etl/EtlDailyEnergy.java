@@ -15,13 +15,13 @@ import org.apache.kafka.streams.kstream.Grouped;
 import org.apache.kafka.streams.kstream.KStream;
 import org.apache.kafka.streams.kstream.Materialized;
 import org.apache.kafka.streams.kstream.SlidingWindows;
+import org.apache.kafka.streams.kstream.TimeWindows;
 import org.apache.kafka.streams.state.WindowStore;
 
 import com.ml.kafka.model.bms.*;
 import com.ml.kafka.model.bms.json.JSONSerde;
 
 /*
-
 docker exec -it kafka-broker bash   
 
 
@@ -31,39 +31,15 @@ kafka-topics --create \
 --bootstrap-server localhost:9092 \
 --replication-factor 1 \
 --partitions 1 \
---topic kafka-streams-energy-raw-data
-
-kafka-topics --create \
---bootstrap-server localhost:9092 \
---replication-factor 1 \
---partitions 1 \
---topic kafka-streams-energy-realtime-data
-
-kafka-console-producer \
-  --topic kafka-streams-energy-raw-data \
-  --bootstrap-server localhost:9092 \
-  --property parse.key=true \
-  --property key.separator=":::"
-
-kafka-console-consumer --bootstrap-server localhost:9092 \
---topic kafka-streams-energy-realtime-data \
---from-beginning \
---formatter kafka.tools.DefaultMessageFormatter \
---property print.timestamp=true \
---property print.key=true \
---property print.value=true
-
-
-
-
+--topic kafka-streams-energy-daily-data
  */
 
 @SuppressWarnings({ "WeakerAccess", "unused" })
-public class EtlEnergy {
+public class EtlDailyEnergy {
     public static void main(final String[] args) {
-        final String application_id = "kafka-stream-etl-energy";
-        final String stream_name = "kafka-streams-energy-raw-data";
-        final String sink_name = "kafka-streams-energy-realtime-data";
+        final String application_id = "kafka-stream-etl-daily-energy";
+        final String stream_name = "kafka-streams-energy-realtime-data";
+        final String sink_name = "kafka-streams-energy-daily-data";
         final String server = "localhost:9092";
 
         final Properties props = new Properties();
@@ -76,23 +52,23 @@ public class EtlEnergy {
 
         final StreamsBuilder builder = new StreamsBuilder();
 
-        final KStream<BMSDataType, BMSRawData> bmsData = builder.stream(stream_name,
+        final KStream<BMSDataType, BMSEtlData> bmsData = builder.stream(stream_name,
                 Consumed.with(new JSONSerde<>(), new JSONSerde<>()));
 
-        Duration timeDifference = Duration.ofSeconds(4);
+        Duration timeDifference = Duration.ofSeconds(8);
         Duration gracePeriod = Duration.ofSeconds(0);
 
         final KStream<BMSDataType, BMSEtlData> bmsProcess = bmsData
                 .filter((key, value) -> "elec".equals(key.itemType))
                 .groupByKey(Grouped.with(new JSONSerde<>(), new JSONSerde<>()))
-                .windowedBy(SlidingWindows.ofTimeDifferenceAndGrace(timeDifference, gracePeriod))
+                .windowedBy(TimeWindows.ofSizeAndGrace(timeDifference, gracePeriod))
                 .aggregate(
                         () -> new BMSAggregationData(0, 0),
                         (aggKey, newValue, aggValue) -> {
                             System.out.println("Start");
                             System.out.println(newValue.toString());
                             System.out.println(aggValue.toString());
-                            aggValue.setType("diff");
+                            aggValue.setType("sum");
                             aggValue.setId(aggKey.id);
                             aggValue.setTimestamp(newValue.timestamp);
                             aggValue.addValues(newValue.value);
@@ -102,7 +78,7 @@ public class EtlEnergy {
                             return aggValue;
                         },
                         Materialized.<BMSDataType, BMSAggregationData, WindowStore<Bytes, byte[]>>as(
-                                "sliding-windowed-aggregated-stream-store-energy-data"))
+                                "sliding-windowed-aggregated-stream-store-energy-daily-data"))
                 .toStream()
                 .filter((key, value) -> value.status == 1)
                 .map((key, value) -> {
@@ -135,4 +111,5 @@ public class EtlEnergy {
         }
         System.exit(0);
     }
+
 }
