@@ -3,6 +3,7 @@ package main
 import (
 	"kafka-iot-connect/controller"
 	_ "kafka-iot-connect/docs"
+	"log"
 
 	"github.com/gin-gonic/gin"
 	"github.com/swaggo/files"
@@ -30,6 +31,15 @@ import (
 // @externalDocs.description  OpenAPI
 // @externalDocs.url          https://swagger.io/resources/open-api/
 func main() {
+
+	go func() {
+		defer func ()  {
+			if err := recover(); err != nil {
+				log.Printf("Error occur: %v", err)
+			}
+		}()
+		initializeKafkaConnet()
+	}()
 
 	r := gin.Default()
 
