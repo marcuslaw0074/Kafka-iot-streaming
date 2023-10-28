@@ -65,7 +65,9 @@ func (p *producerProvider) ProduceRecord(messages ...*sarama.ProducerMessage) {
 	}
 
 	for _, ele := range messages {
-		producer.Input() <- ele
+		if ele != nil {
+			producer.Input() <- ele
+		}
 	}
 
 	err = producer.CommitTxn()

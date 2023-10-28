@@ -23,6 +23,18 @@ kafka-topics --create \
 --partitions 1 \
 --topic test-kafka-streams-energy-realtime-data
 
+kafka-topics --create \
+--bootstrap-server localhost:9092 \
+--replication-factor 1 \
+--partitions 1 \
+--topic kafka-streams-kWh-raw-data
+
+kafka-topics --create \
+--bootstrap-server localhost:9092 \
+--replication-factor 1 \
+--partitions 1 \
+--topic kafka-streams-kWh-realtime-data
+
 kafka-console-producer \
   --topic test-kafka-streams-energy-raw-data \
   --bootstrap-server localhost:9092 \

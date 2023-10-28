@@ -2,6 +2,7 @@ package main
 
 import (
 	"context"
+	"kafka-iot-connect/client/connect/energy"
 	"kafka-iot-connect/controller"
 	_ "kafka-iot-connect/docs"
 
@@ -44,8 +45,10 @@ func main() {
 	// }()
 
 	ctx := context.Background()
-	go initializeMqttConnectClient(ctx)
-	go initializeKafkaConnectClient(ctx)
+	// go initializeMqttConnectClient(ctx)
+	go energy.EnergyᚖMillsᚋMqttᚋClient(ctx)
+	// go energy.EnergyᚖMillsᚋKafkaᚋClient(ctx)
+	// go initializeKafkaConnectClient(ctx)
 
 	r := gin.Default()
 
