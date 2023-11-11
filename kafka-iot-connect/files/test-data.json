@@ -1,0 +1,2510 @@
+[
+  {
+    "Name": "mp_raw_3000014",
+    "Tags": {
+      "buildingName": "mills",
+      "id": "esg/NF/Mills/electricity/Device1:Analog_Value_M6_ACB_T4_1_total_kWh"
+    },
+    "Fields": {
+      "reading": "",
+      "value": 1311853.25
+    },
+    "T": "2023-10-28T03:52:19.369458784Z"
+  },
+  {
+    "Name": "mp_raw_3000014",
+    "Tags": {
+      "buildingName": "mills",
+      "id": "esg/NF/Mills/electricity/Device1:Analog_Value_M6_ACB_T4_2_total_kWh"
+    },
+    "Fields": {
+      "reading": "",
+      "value": 335800.5
+    },
+    "T": "2023-10-28T03:52:19.369458784Z"
+  },
+  {
+    "Name": "mp_raw_3000014",
+    "Tags": {
+      "buildingName": "mills",
+      "id": "esg/NF/Mills/electricity/Device1:Analog_Value_M6_ACB_T4_total_kWh"
+    },
+    "Fields": {
+      "reading": "",
+      "value": 7027822.5
+    },
+    "T": "2023-10-28T03:52:19.369458784Z"
+  },
+  {
+    "Name": "mp_raw_3000014",
+    "Tags": {
+      "buildingName": "mills",
+      "id": "esg/NF/Mills/electricity/Device1:Analog_Value_M6_Shop104_total_kWh"
+    },
+    "Fields": {
+      "reading": "",
+      "value": 963.55
+    },
+    "T": "2023-10-28T03:52:19.369458784Z"
+  },
+  {
+    "Name": "mp_raw_3000014",
+    "Tags": {
+      "buildingName": "mills",
+      "id": "esg/NF/Mills/electricity/Device1:Analog_Value_M6_Shop104A_total_kWh"
+    },
+    "Fields": {
+      "reading": "",
+      "value": 7147.54
+    },
+    "T": "2023-10-28T03:52:19.369458784Z"
+  },
+  {
+    "Name": "mp_raw_3000014",
+    "Tags": {
+      "buildingName": "mills",
+      "id": "esg/NF/Mills/electricity/Device1:Analog_Value_M6_Shop105_total_kWh"
+    },
+    "Fields": {
+      "reading": "",
+      "value": 2032.53
+    },
+    "T": "2023-10-28T03:52:19.369458784Z"
+  },
+  {
+    "Name": "mp_raw_3000014",
+    "Tags": {
+      "buildingName": "mills",
+      "id": "esg/NF/Mills/electricity/Device1:Analog_Value_M6_Shop106_total_kWh"
+    },
+    "Fields": {
+      "reading": "",
+      "value": 2536.14
+    },
+    "T": "2023-10-28T03:52:19.369458784Z"
+  },
+  {
+    "Name": "mp_raw_3000014",
+    "Tags": {
+      "buildingName": "mills",
+      "id": "esg/NF/Mills/electricity/Device1:Analog_Value_M6_Shop107_total_kWh"
+    },
+    "Fields": {
+      "reading": "",
+      "value": 1402.91
+    },
+    "T": "2023-10-28T03:52:19.369458784Z"
+  },
+  {
+    "Name": "mp_raw_3000014",
+    "Tags": {
+      "buildingName": "mills",
+      "id": "esg/NF/Mills/electricity/Device1:Analog_Value_M6_Shop108_total_kWh"
+    },
+    "Fields": {
+      "reading": "",
+      "value": 38249.67
+    },
+    "T": "2023-10-28T03:52:19.369458784Z"
+  },
+  {
+    "Name": "mp_raw_3000014",
+    "Tags": {
+      "buildingName": "mills",
+      "id": "esg/NF/Mills/electricity/Device1:Analog_Value_M6_Shop109_total_kWh"
+    },
+    "Fields": {
+      "reading": "",
+      "value": 21253.65
+    },
+    "T": "2023-10-28T03:52:19.369458784Z"
+  },
+  {
+    "Name": "mp_raw_3000014",
+    "Tags": {
+      "buildingName": "mills",
+      "id": "esg/NF/Mills/electricity/Device1:Analog_Value_M6_Shop110_total_kWh"
+    },
+    "Fields": {
+      "reading": "",
+      "value": 17660.94
+    },
+    "T": "2023-10-28T03:52:19.369458784Z"
+  },
+  {
+    "Name": "mp_raw_3000014",
+    "Tags": {
+      "buildingName": "mills",
+      "id": "esg/NF/Mills/electricity/Device1:Analog_Value_M6_Shop111_total_kWh"
+    },
+    "Fields": {
+      "reading": "",
+      "value": 6843.08
+    },
+    "T": "2023-10-28T03:52:19.369458784Z"
+  },
+  {
+    "Name": "mp_raw_3000014",
+    "Tags": {
+      "buildingName": "mills",
+      "id": "esg/NF/Mills/electricity/Device1:Analog_Value_M6_Shop112_total_kWh"
+    },
+    "Fields": {
+      "reading": "",
+      "value": 39207.04
+    },
+    "T": "2023-10-28T03:52:19.369458784Z"
+  },
+  {
+    "Name": "mp_raw_3000014",
+    "Tags": {
+      "buildingName": "mills",
+      "id": "esg/NF/Mills/electricity/Device1:Analog_Value_M6_Shop112A_total_kWh"
+    },
+    "Fields": {
+      "reading": "",
+      "value": 24600.23
+    },
+    "T": "2023-10-28T03:52:19.369458784Z"
+  },
+  {
+    "Name": "mp_raw_3000014",
+    "Tags": {
+      "buildingName": "mills",
+      "id": "esg/NF/Mills/electricity/Device1:Analog_Value_M6_Shop113_total_kWh"
+    },
+    "Fields": {
+      "reading": "",
+      "value": 1781.88
+    },
+    "T": "2023-10-28T03:52:19.369458784Z"
+  },
+  {
+    "Name": "mp_raw_3000014",
+    "Tags": {
+      "buildingName": "mills",
+      "id": "esg/NF/Mills/electricity/Device1:Analog_Value_M6_ShopG05_total_kWh"
+    },
+    "Fields": {
+      "reading": "",
+      "value": 101589.16
+    },
+    "T": "2023-10-28T03:52:19.369458784Z"
+  },
+  {
+    "Name": "mp_raw_3000014",
+    "Tags": {
+      "buildingName": "mills",
+      "id": "esg/NF/Mills/electricity/Device1:Analog_Value_M6_ShopG08_total_kWh"
+    },
+    "Fields": {
+      "reading": "",
+      "value": 16867.28
+    },
+    "T": "2023-10-28T03:52:19.369458784Z"
+  },
+  {
+    "Name": "mp_raw_3000014",
+    "Tags": {
+      "buildingName": "mills",
+      "id": "esg/NF/Mills/electricity/Device1:Analog_Value_M6_ShopG09_total_kWh"
+    },
+    "Fields": {
+      "reading": "",
+      "value": 196851.44
+    },
+    "T": "2023-10-28T03:52:19.369458784Z"
+  },
+  {
+    "Name": "mp_raw_3000014",
+    "Tags": {
+      "buildingName": "mills",
+      "id": "esg/NF/Mills/electricity/Device1:Analog_Value_M6_ShopG10_total_kWh"
+    },
+    "Fields": {
+      "reading": "",
+      "value": 0
+    },
+    "T": "2023-10-28T03:52:19.369458784Z"
+  },
+  {
+    "Name": "mp_raw_3000014",
+    "Tags": {
+      "buildingName": "mills",
+      "id": "esg/NF/Mills/electricity/Device1:Analog_Value_M6_ShopG11_total_kWh"
+    },
+    "Fields": {
+      "reading": "",
+      "value": 30475.28
+    },
+    "T": "2023-10-28T03:52:19.369458784Z"
+  },
+  {
+    "Name": "mp_raw_3000014",
+    "Tags": {
+      "buildingName": "mills",
+      "id": "esg/NF/Mills/electricity/Device52:Analog_Value_M4_ACB_T1_1_total_kWh"
+    },
+    "Fields": {
+      "reading": "",
+      "value": 4891601
+    },
+    "T": "2023-10-28T03:52:19.369458784Z"
+  },
+  {
+    "Name": "mp_raw_3000014",
+    "Tags": {
+      "buildingName": "mills",
+      "id": "esg/NF/Mills/electricity/Device52:Analog_Value_M4_ACB_T1_2_total_kWh"
+    },
+    "Fields": {
+      "reading": "",
+      "value": 3106511.5
+    },
+    "T": "2023-10-28T03:52:19.369458784Z"
+  },
+  {
+    "Name": "mp_raw_3000014",
+    "Tags": {
+      "buildingName": "mills",
+      "id": "esg/NF/Mills/electricity/Device52:Analog_Value_M4_ACB_T1_3_total_kWh"
+    },
+    "Fields": {
+      "reading": "",
+      "value": 600292.81
+    },
+    "T": "2023-10-28T03:52:19.369458784Z"
+  },
+  {
+    "Name": "mp_raw_3000014",
+    "Tags": {
+      "buildingName": "mills",
+      "id": "esg/NF/Mills/electricity/Device52:Analog_Value_M4_ACB_T1_total_kWh"
+    },
+    "Fields": {
+      "reading": "",
+      "value": 7882920
+    },
+    "T": "2023-10-28T03:52:19.369458784Z"
+  },
+  {
+    "Name": "mp_raw_3000014",
+    "Tags": {
+      "buildingName": "mills",
+      "id": "esg/NF/Mills/electricity/Device52:Analog_Value_M4_ACB_T2_total_kWh"
+    },
+    "Fields": {
+      "reading": "",
+      "value": 3393259.5
+    },
+    "T": "2023-10-28T03:52:19.369458784Z"
+  },
+  {
+    "Name": "mp_raw_3000014",
+    "Tags": {
+      "buildingName": "mills",
+      "id": "esg/NF/Mills/electricity/Device52:Analog_Value_M4_Shop110_Total_kWh"
+    },
+    "Fields": {
+      "reading": "",
+      "value": 0
+    },
+    "T": "2023-10-28T03:52:19.369458784Z"
+  },
+  {
+    "Name": "mp_raw_3000014",
+    "Tags": {
+      "buildingName": "mills",
+      "id": "esg/NF/Mills/electricity/Device52:Analog_Value_M4_Shop117_Total_kWh"
+    },
+    "Fields": {
+      "reading": "",
+      "value": 284047.59
+    },
+    "T": "2023-10-28T03:52:19.369458784Z"
+  },
+  {
+    "Name": "mp_raw_3000014",
+    "Tags": {
+      "buildingName": "mills",
+      "id": "esg/NF/Mills/electricity/Device52:Analog_Value_M4_Shop118_Total_kWh"
+    },
+    "Fields": {
+      "reading": "",
+      "value": 234240.22
+    },
+    "T": "2023-10-28T03:52:19.369458784Z"
+  },
+  {
+    "Name": "mp_raw_3000014",
+    "Tags": {
+      "buildingName": "mills",
+      "id": "esg/NF/Mills/electricity/Device52:Analog_Value_M4_Shop119_Total_kWh"
+    },
+    "Fields": {
+      "reading": "",
+      "value": 0
+    },
+    "T": "2023-10-28T03:52:19.369458784Z"
+  },
+  {
+    "Name": "mp_raw_3000014",
+    "Tags": {
+      "buildingName": "mills",
+      "id": "esg/NF/Mills/electricity/Device52:Analog_Value_M4_ShopG01_Total_kWh"
+    },
+    "Fields": {
+      "reading": "",
+      "value": 0
+    },
+    "T": "2023-10-28T03:52:19.369458784Z"
+  },
+  {
+    "Name": "mp_raw_3000014",
+    "Tags": {
+      "buildingName": "mills",
+      "id": "esg/NF/Mills/electricity/Device52:Analog_Value_M4_ShopG13_Total_kWh"
+    },
+    "Fields": {
+      "reading": "",
+      "value": 67603.32
+    },
+    "T": "2023-10-28T03:52:19.369458784Z"
+  },
+  {
+    "Name": "mp_raw_3000014",
+    "Tags": {
+      "buildingName": "mills",
+      "id": "esg/NF/Mills/electricity/Device52:Analog_Value_M4_ShopG14_Total_kWh"
+    },
+    "Fields": {
+      "reading": "",
+      "value": 1000488.12
+    },
+    "T": "2023-10-28T03:52:19.369458784Z"
+  },
+  {
+    "Name": "mp_raw_3000014",
+    "Tags": {
+      "buildingName": "mills",
+      "id": "esg/NF/Mills/electricity/Device52:Analog_Value_M4_ShopG15_Total_kWh"
+    },
+    "Fields": {
+      "reading": "",
+      "value": 284825.03
+    },
+    "T": "2023-10-28T03:52:19.369458784Z"
+  },
+  {
+    "Name": "mp_raw_3000014",
+    "Tags": {
+      "buildingName": "mills",
+      "id": "esg/NF/Mills/electricity/Device54:Analog_Value_M5_ACB_T3_total_kWh"
+    },
+    "Fields": {
+      "reading": "",
+      "value": 8289126
+    },
+    "T": "2023-10-28T03:52:19.369458784Z"
+  },
+  {
+    "Name": "mp_raw_3000014",
+    "Tags": {
+      "buildingName": "mills",
+      "id": "esg/NF/Mills/electricity/Device54:Analog_Value_M5_ACB_T3_1_total_kWh"
+    },
+    "Fields": {
+      "reading": "",
+      "value": 8194281.5
+    },
+    "T": "2023-10-28T03:52:19.369458784Z"
+  },
+  {
+    "Name": "mp_raw_3000014",
+    "Tags": {
+      "buildingName": "mills",
+      "id": "esg/NF/Mills/electricity/Device54:Analog_Value_M5_ACB_T3_3_total_kWh"
+    },
+    "Fields": {
+      "reading": "",
+      "value": 3971754
+    },
+    "T": "2023-10-28T03:52:19.369458784Z"
+  },
+  {
+    "Name": "mp_raw_3000014",
+    "Tags": {
+      "buildingName": "mills",
+      "id": "esg/NF/Mills/electricity/Device54:Analog_Value_M5_ACB_T3_4_total_kWh"
+    },
+    "Fields": {
+      "reading": "",
+      "value": 2329649.25
+    },
+    "T": "2023-10-28T03:52:19.369458784Z"
+  },
+  {
+    "Name": "mp_raw_3000014",
+    "Tags": {
+      "buildingName": "mills",
+      "id": "esg/NF/Mills/electricity/Device54:Analog_Value_M5_ShopG01_Total_kWh"
+    },
+    "Fields": {
+      "reading": "",
+      "value": 75420.33
+    },
+    "T": "2023-10-28T03:52:19.369458784Z"
+  },
+  {
+    "Name": "mp_raw_3000014",
+    "Tags": {
+      "buildingName": "mills",
+      "id": "esg/NF/Mills/cooling_load/Device55:M5_MCC_CDWP01_total_kWh"
+    },
+    "Fields": {
+      "reading": "",
+      "value": 330229
+    },
+    "T": "2023-10-28T03:52:19.369458784Z"
+  },
+  {
+    "Name": "mp_raw_3000014",
+    "Tags": {
+      "buildingName": "mills",
+      "id": "esg/NF/Mills/cooling_load/Device55:M5_MCC_CDWP02_total_kWh"
+    },
+    "Fields": {
+      "reading": "",
+      "value": 303803.44
+    },
+    "T": "2023-10-28T03:52:19.369458784Z"
+  },
+  {
+    "Name": "mp_raw_3000014",
+    "Tags": {
+      "buildingName": "mills",
+      "id": "esg/NF/Mills/cooling_load/Device55:M5_MCC_CDWP03_total_kWh"
+    },
+    "Fields": {
+      "reading": "",
+      "value": 328453.53
+    },
+    "T": "2023-10-28T03:52:19.369458784Z"
+  },
+  {
+    "Name": "mp_raw_3000014",
+    "Tags": {
+      "buildingName": "mills",
+      "id": "esg/NF/Mills/cooling_load/Device55:M5_MCC_CDWP04_total_kWh"
+    },
+    "Fields": {
+      "reading": "",
+      "value": 157122.73
+    },
+    "T": "2023-10-28T03:52:19.369458784Z"
+  },
+  {
+    "Name": "mp_raw_3000014",
+    "Tags": {
+      "buildingName": "mills",
+      "id": "esg/NF/Mills/cooling_load/Device55:M5_MCC_CDWP05_total_kWh"
+    },
+    "Fields": {
+      "reading": "",
+      "value": 159974.86
+    },
+    "T": "2023-10-28T03:52:19.369458784Z"
+  },
+  {
+    "Name": "mp_raw_3000014",
+    "Tags": {
+      "buildingName": "mills",
+      "id": "esg/NF/Mills/cooling_load/Device55:M5_MCC_CHWP01_total_kWh"
+    },
+    "Fields": {
+      "reading": "",
+      "value": 242548.66
+    },
+    "T": "2023-10-28T03:52:19.369458784Z"
+  },
+  {
+    "Name": "mp_raw_3000014",
+    "Tags": {
+      "buildingName": "mills",
+      "id": "esg/NF/Mills/cooling_load/Device55:M5_MCC_CHWP02_total_kWh"
+    },
+    "Fields": {
+      "reading": "",
+      "value": 241297.03
+    },
+    "T": "2023-10-28T03:52:19.369458784Z"
+  },
+  {
+    "Name": "mp_raw_3000014",
+    "Tags": {
+      "buildingName": "mills",
+      "id": "esg/NF/Mills/cooling_load/Device55:M5_MCC_CHWP03_total_kWh"
+    },
+    "Fields": {
+      "reading": "",
+      "value": 239613.92
+    },
+    "T": "2023-10-28T03:52:19.369458784Z"
+  },
+  {
+    "Name": "mp_raw_3000014",
+    "Tags": {
+      "buildingName": "mills",
+      "id": "esg/NF/Mills/cooling_load/Device55:M5_MCC_CHWP04_total_kWh"
+    },
+    "Fields": {
+      "reading": "",
+      "value": 200726.03
+    },
+    "T": "2023-10-28T03:52:19.369458784Z"
+  },
+  {
+    "Name": "mp_raw_3000014",
+    "Tags": {
+      "buildingName": "mills",
+      "id": "esg/NF/Mills/cooling_load/Device55:M5_MCC_CHWP05_total_kWh"
+    },
+    "Fields": {
+      "reading": "",
+      "value": 207244.52
+    },
+    "T": "2023-10-28T03:52:19.369458784Z"
+  },
+  {
+    "Name": "mp_raw_3000014",
+    "Tags": {
+      "buildingName": "mills",
+      "id": "esg/NF/Mills/cooling_load/Device55:M5_MCC_CT01_total_kWh"
+    },
+    "Fields": {
+      "reading": "",
+      "value": 163943.62
+    },
+    "T": "2023-10-28T03:52:19.369458784Z"
+  },
+  {
+    "Name": "mp_raw_3000014",
+    "Tags": {
+      "buildingName": "mills",
+      "id": "esg/NF/Mills/cooling_load/Device55:M5_MCC_CT02_total_kWh"
+    },
+    "Fields": {
+      "reading": "",
+      "value": 177872.77
+    },
+    "T": "2023-10-28T03:52:19.369458784Z"
+  },
+  {
+    "Name": "mp_raw_3000014",
+    "Tags": {
+      "buildingName": "mills",
+      "id": "esg/NF/Mills/cooling_load/Device55:M5_MCC_CT03_total_kWh"
+    },
+    "Fields": {
+      "reading": "",
+      "value": 42158.55
+    },
+    "T": "2023-10-28T03:52:19.369458784Z"
+  },
+  {
+    "Name": "mp_raw_3000014",
+    "Tags": {
+      "buildingName": "mills",
+      "id": "esg/NF/Mills/electricity/Device55:M5_MCC_WCC01_total_kWh"
+    },
+    "Fields": {
+      "reading": "",
+      "value": 2375253.75
+    },
+    "T": "2023-10-28T03:52:19.369458784Z"
+  },
+  {
+    "Name": "mp_raw_3000014",
+    "Tags": {
+      "buildingName": "mills",
+      "id": "esg/NF/Mills/electricity/Device55:M5_MCC_WCC02_total_kWh"
+    },
+    "Fields": {
+      "reading": "",
+      "value": 2132033.5
+    },
+    "T": "2023-10-28T03:52:19.369458784Z"
+  },
+  {
+    "Name": "mp_raw_3000014",
+    "Tags": {
+      "buildingName": "mills",
+      "id": "esg/NF/Mills/electricity/Device55:M5_MCC_Supply_Temp"
+    },
+    "Fields": {
+      "reading": "",
+      "value": 1111085.12
+    },
+    "T": "2023-10-28T03:52:19.369458784Z"
+  },
+  {
+    "Name": "mp_raw_3000014",
+    "Tags": {
+      "buildingName": "mills",
+      "id": "esg/NF/Mills/electricity/Device55:M5_MCC_Header_Supply_Temp"
+    },
+    "Fields": {
+      "reading": "",
+      "value": 7.12
+    },
+    "T": "2023-10-28T03:52:19.369458784Z"
+  },
+  {
+    "Name": "mp_raw_3000014",
+    "Tags": {
+      "buildingName": "mills",
+      "id": "esg/NF/Mills/electricity/Device55:M5_MCC_Header_Return_Temp"
+    },
+    "Fields": {
+      "reading": "",
+      "value": 10.11
+    },
+    "T": "2023-10-28T03:52:19.369458784Z"
+  },
+  {
+    "Name": "mp_raw_3000014",
+    "Tags": {
+      "buildingName": "mills",
+      "id": "esg/NF/Mills/electricity/Device55:M5_MCC_Header_Flowrate"
+    },
+    "Fields": {
+      "reading": "",
+      "value": 72.83
+    },
+    "T": "2023-10-28T03:52:19.369458784Z"
+  },
+  {
+    "Name": "mp_raw_3000014",
+    "Tags": {
+      "buildingName": "mills",
+      "id": "esg/NF/Mills/cooling_load/Device51:CU1_Kwh"
+    },
+    "Fields": {
+      "reading": "",
+      "value": 2375253.75
+    },
+    "T": "2023-10-28T03:52:19.369458784Z"
+  },
+  {
+    "Name": "mp_raw_3000014",
+    "Tags": {
+      "buildingName": "mills",
+      "id": "esg/NF/Mills/cooling_load/Device51:CU2_Kwh"
+    },
+    "Fields": {
+      "reading": "",
+      "value": 2132033
+    },
+    "T": "2023-10-28T03:52:19.369458784Z"
+  },
+  {
+    "Name": "mp_raw_3000014",
+    "Tags": {
+      "buildingName": "mills",
+      "id": "esg/NF/Mills/cooling_load/Device51:CU3_Kwh"
+    },
+    "Fields": {
+      "reading": "",
+      "value": 1111085.12
+    },
+    "T": "2023-10-28T03:52:19.369458784Z"
+  },
+  {
+    "Name": "mp_raw_3000014",
+    "Tags": {
+      "buildingName": "mills",
+      "id": "esg/NF/Mills/electricity/Device51:LVSB_N_01_1C01_ToTal_Kwh"
+    },
+    "Fields": {
+      "reading": "",
+      "value": 3623.98
+    },
+    "T": "2023-10-28T03:52:19.369458784Z"
+  },
+  {
+    "Name": "mp_raw_3000014",
+    "Tags": {
+      "buildingName": "mills",
+      "id": "esg/NF/Mills/electricity/Device51:LVSB_N_01_1E02_ToTal_Kwh"
+    },
+    "Fields": {
+      "reading": "",
+      "value": 339500.88
+    },
+    "T": "2023-10-28T03:52:19.369458784Z"
+  },
+  {
+    "Name": "mp_raw_3000014",
+    "Tags": {
+      "buildingName": "mills",
+      "id": "esg/NF/Mills/electricity/Device51:LVSB_N_01_1E05_ToTal_Kwh"
+    },
+    "Fields": {
+      "reading": "",
+      "value": 37747.89
+    },
+    "T": "2023-10-28T03:52:19.369458784Z"
+  },
+  {
+    "Name": "mp_raw_3000014",
+    "Tags": {
+      "buildingName": "mills",
+      "id": "esg/NF/Mills/electricity/Device51:LVSB_N_01_1H01_ToTal_Kwh"
+    },
+    "Fields": {
+      "reading": "",
+      "value": 99477.26
+    },
+    "T": "2023-10-28T03:52:19.369458784Z"
+  },
+  {
+    "Name": "mp_raw_3000014",
+    "Tags": {
+      "buildingName": "mills",
+      "id": "esg/NF/Mills/electricity/Device51:LVSB_N_01_1N01_ToTal_Kwh"
+    },
+    "Fields": {
+      "reading": "",
+      "value": 3.51
+    },
+    "T": "2023-10-28T03:52:19.369458784Z"
+  },
+  {
+    "Name": "mp_raw_3000014",
+    "Tags": {
+      "buildingName": "mills",
+      "id": "esg/NF/Mills/electricity/Device51:LVSB_N_01_1N02_ToTal_Kwh"
+    },
+    "Fields": {
+      "reading": "",
+      "value": 401103.81
+    },
+    "T": "2023-10-28T03:52:19.369458784Z"
+  },
+  {
+    "Name": "mp_raw_3000014",
+    "Tags": {
+      "buildingName": "mills",
+      "id": "esg/NF/Mills/electricity/Device51:LVSB_N_01_1N03_ToTal_Kwh"
+    },
+    "Fields": {
+      "reading": "",
+      "value": 231.66
+    },
+    "T": "2023-10-28T03:52:19.369458784Z"
+  },
+  {
+    "Name": "mp_raw_3000014",
+    "Tags": {
+      "buildingName": "mills",
+      "id": "esg/NF/Mills/electricity/Device51:LVSB_N_01_1N04_ToTal_Kwh"
+    },
+    "Fields": {
+      "reading": "",
+      "value": 123210.45
+    },
+    "T": "2023-10-28T03:52:19.369458784Z"
+  },
+  {
+    "Name": "mp_raw_3000014",
+    "Tags": {
+      "buildingName": "mills",
+      "id": "esg/NF/Mills/electricity/Device51:LVSB_N_01_1N05_ToTal_Kwh"
+    },
+    "Fields": {
+      "reading": "",
+      "value": 35814.35
+    },
+    "T": "2023-10-28T03:52:19.369458784Z"
+  },
+  {
+    "Name": "mp_raw_3000014",
+    "Tags": {
+      "buildingName": "mills",
+      "id": "esg/NF/Mills/electricity/Device51:LVSB_N_01_1N06_ToTal_Kwh"
+    },
+    "Fields": {
+      "reading": "",
+      "value": 41496.61
+    },
+    "T": "2023-10-28T03:52:19.369458784Z"
+  },
+  {
+    "Name": "mp_raw_3000014",
+    "Tags": {
+      "buildingName": "mills",
+      "id": "esg/NF/Mills/electricity/Device51:LVSB_N_01_1N08_ToTal_Kwh"
+    },
+    "Fields": {
+      "reading": "",
+      "value": 36432.05
+    },
+    "T": "2023-10-28T03:52:19.369458784Z"
+  },
+  {
+    "Name": "mp_raw_3000014",
+    "Tags": {
+      "buildingName": "mills",
+      "id": "esg/NF/Mills/electricity/Device51:LVSB_N_01_1N11_ToTal_Kwh"
+    },
+    "Fields": {
+      "reading": "",
+      "value": 1.8
+    },
+    "T": "2023-10-28T03:52:19.369458784Z"
+  },
+  {
+    "Name": "mp_raw_3000014",
+    "Tags": {
+      "buildingName": "mills",
+      "id": "esg/NF/Mills/electricity/Device51:LVSB_N_01_1T02_ToTal_Kwh"
+    },
+    "Fields": {
+      "reading": "",
+      "value": 1694543.38
+    },
+    "T": "2023-10-28T03:52:19.369458784Z"
+  },
+  {
+    "Name": "mp_raw_3000014",
+    "Tags": {
+      "buildingName": "mills",
+      "id": "esg/NF/Mills/electricity/Device51:LVSB_N_01_1T03_ToTal_Kwh"
+    },
+    "Fields": {
+      "reading": "",
+      "value": 96483.06
+    },
+    "T": "2023-10-28T03:52:19.369458784Z"
+  },
+  {
+    "Name": "mp_raw_3000014",
+    "Tags": {
+      "buildingName": "mills",
+      "id": "esg/NF/Mills/electricity/Device51:LVSB_N_01_1T04_ToTal_Kwh"
+    },
+    "Fields": {
+      "reading": "",
+      "value": 522440
+    },
+    "T": "2023-10-28T03:52:19.369458784Z"
+  },
+  {
+    "Name": "mp_raw_3000014",
+    "Tags": {
+      "buildingName": "mills",
+      "id": "esg/NF/Mills/electricity/Device51:LVSB_N_01_1T05_ToTal_Kwh"
+    },
+    "Fields": {
+      "reading": "",
+      "value": 481894.56
+    },
+    "T": "2023-10-28T03:52:19.369458784Z"
+  },
+  {
+    "Name": "mp_raw_3000014",
+    "Tags": {
+      "buildingName": "mills",
+      "id": "esg/NF/Mills/electricity/Device51:LVSB_N_01_1T06_ToTal_Kwh"
+    },
+    "Fields": {
+      "reading": "",
+      "value": 84689.02
+    },
+    "T": "2023-10-28T03:52:19.369458784Z"
+  },
+  {
+    "Name": "mp_raw_3000014",
+    "Tags": {
+      "buildingName": "mills",
+      "id": "esg/NF/Mills/electricity/Device51:LVSB_N_01_2T01_ToTal_Kwh"
+    },
+    "Fields": {
+      "reading": "",
+      "value": 512595.31
+    },
+    "T": "2023-10-28T03:52:19.369458784Z"
+  },
+  {
+    "Name": "mp_raw_3000014",
+    "Tags": {
+      "buildingName": "mills",
+      "id": "esg/NF/Mills/electricity/Device51:LVSB_N_01_2T02_ToTal_Kwh"
+    },
+    "Fields": {
+      "reading": "",
+      "value": 354293.81
+    },
+    "T": "2023-10-28T03:52:19.369458784Z"
+  },
+  {
+    "Name": "mp_raw_3000014",
+    "Tags": {
+      "buildingName": "mills",
+      "id": "esg/NF/Mills/electricity/Device51:LVSB_N_01_2T03_ToTal_Kwh"
+    },
+    "Fields": {
+      "reading": "",
+      "value": 68336.02
+    },
+    "T": "2023-10-28T03:52:19.369458784Z"
+  },
+  {
+    "Name": "mp_raw_3000014",
+    "Tags": {
+      "buildingName": "mills",
+      "id": "esg/NF/Mills/electricity/Device51:LVSB_N_01_2T04_ToTal_Kwh"
+    },
+    "Fields": {
+      "reading": "",
+      "value": 867103.31
+    },
+    "T": "2023-10-28T03:52:19.369458784Z"
+  },
+  {
+    "Name": "mp_raw_3000014",
+    "Tags": {
+      "buildingName": "mills",
+      "id": "esg/NF/Mills/electricity/Device51:LVSB_N_01_2T05_ToTal_Kwh"
+    },
+    "Fields": {
+      "reading": "",
+      "value": 340394.88
+    },
+    "T": "2023-10-28T03:52:19.369458784Z"
+  },
+  {
+    "Name": "mp_raw_3000014",
+    "Tags": {
+      "buildingName": "mills",
+      "id": "esg/NF/Mills/electricity/Device51:LVSB_N_01_2T09_ToTal_Kwh"
+    },
+    "Fields": {
+      "reading": "",
+      "value": 1220705.25
+    },
+    "T": "2023-10-28T03:52:19.369458784Z"
+  },
+  {
+    "Name": "mp_raw_3000014",
+    "Tags": {
+      "buildingName": "mills",
+      "id": "esg/NF/Mills/electricity/Device51:LVSB_N_01_ACB_T1_ToTal_Kwh"
+    },
+    "Fields": {
+      "reading": "",
+      "value": 7882920
+    },
+    "T": "2023-10-28T03:52:19.369458784Z"
+  },
+  {
+    "Name": "mp_raw_3000014",
+    "Tags": {
+      "buildingName": "mills",
+      "id": "esg/NF/Mills/electricity/Device51:LVSB_N_01_ACB_T1_1_ToTal_Kwh"
+    },
+    "Fields": {
+      "reading": "",
+      "value": 4891601
+    },
+    "T": "2023-10-28T03:52:19.369458784Z"
+  },
+  {
+    "Name": "mp_raw_3000014",
+    "Tags": {
+      "buildingName": "mills",
+      "id": "esg/NF/Mills/electricity/Device51:LVSB_N_01_ACB_T1_2_ToTal_Kwh"
+    },
+    "Fields": {
+      "reading": "",
+      "value": 3106511.5
+    },
+    "T": "2023-10-28T03:52:19.369458784Z"
+  },
+  {
+    "Name": "mp_raw_3000014",
+    "Tags": {
+      "buildingName": "mills",
+      "id": "esg/NF/Mills/electricity/Device51:LVSB_N_01_ACB_T1_3_ToTal_Kwh"
+    },
+    "Fields": {
+      "reading": "",
+      "value": 600292.81
+    },
+    "T": "2023-10-28T03:52:19.369458784Z"
+  },
+  {
+    "Name": "mp_raw_3000014",
+    "Tags": {
+      "buildingName": "mills",
+      "id": "esg/NF/Mills/electricity/Device51:LVSB_N_01_ACB_T2_ToTal_Kwh"
+    },
+    "Fields": {
+      "reading": "",
+      "value": 3393259.5
+    },
+    "T": "2023-10-28T03:52:19.369458784Z"
+  },
+  {
+    "Name": "mp_raw_3000014",
+    "Tags": {
+      "buildingName": "mills",
+      "id": "esg/NF/Mills/electricity/Device51:M5_1F_Energy_Meter_ToTal_Kwh"
+    },
+    "Fields": {
+      "reading": "",
+      "value": 6137464
+    },
+    "T": "2023-10-28T03:52:19.369458784Z"
+  },
+  {
+    "Name": "mp_raw_3000014",
+    "Tags": {
+      "buildingName": "mills",
+      "id": "esg/NF/Mills/electricity/Device51:3N06A_ToTal_Kwh"
+    },
+    "Fields": {
+      "reading": "",
+      "value": 36053.73
+    },
+    "T": "2023-10-28T03:52:19.369458784Z"
+  },
+  {
+    "Name": "mp_raw_3000014",
+    "Tags": {
+      "buildingName": "mills",
+      "id": "esg/NF/Mills/electricity/Device51:3N06B_ToTal_Kwh"
+    },
+    "Fields": {
+      "reading": "",
+      "value": 33084.73
+    },
+    "T": "2023-10-28T03:52:19.369458784Z"
+  },
+  {
+    "Name": "mp_raw_3000014",
+    "Tags": {
+      "buildingName": "mills",
+      "id": "esg/NF/Mills/electricity/Device51:3N06C_ToTal_Kwh"
+    },
+    "Fields": {
+      "reading": "",
+      "value": 35570.33
+    },
+    "T": "2023-10-28T03:52:19.369458784Z"
+  },
+  {
+    "Name": "mp_raw_3000014",
+    "Tags": {
+      "buildingName": "mills",
+      "id": "esg/NF/Mills/electricity/Device51:3N06D_ToTal_Kwh"
+    },
+    "Fields": {
+      "reading": "",
+      "value": 34475.98
+    },
+    "T": "2023-10-28T03:52:19.369458784Z"
+  },
+  {
+    "Name": "mp_raw_3000014",
+    "Tags": {
+      "buildingName": "mills",
+      "id": "esg/NF/Mills/electricity/Device51:3N06E_ToTal_Kwh"
+    },
+    "Fields": {
+      "reading": "",
+      "value": 34005.33
+    },
+    "T": "2023-10-28T03:52:19.369458784Z"
+  },
+  {
+    "Name": "mp_raw_3000014",
+    "Tags": {
+      "buildingName": "mills",
+      "id": "esg/NF/Mills/electricity/Device51:3N06F_ToTal_Kwh"
+    },
+    "Fields": {
+      "reading": "",
+      "value": 36070.17
+    },
+    "T": "2023-10-28T03:52:19.369458784Z"
+  },
+  {
+    "Name": "mp_raw_3000014",
+    "Tags": {
+      "buildingName": "mills",
+      "id": "esg/NF/Mills/electricity/Device51:LVSB_E_03_3E01_ToTal_Kwh"
+    },
+    "Fields": {
+      "reading": "",
+      "value": 1934766.75
+    },
+    "T": "2023-10-28T03:52:19.369458784Z"
+  },
+  {
+    "Name": "mp_raw_3000014",
+    "Tags": {
+      "buildingName": "mills",
+      "id": "esg/NF/Mills/electricity/Device51:LVSB_E_03_3E02_ToTal_Kwh"
+    },
+    "Fields": {
+      "reading": "",
+      "value": 12300.61
+    },
+    "T": "2023-10-28T03:52:19.369458784Z"
+  },
+  {
+    "Name": "mp_raw_3000014",
+    "Tags": {
+      "buildingName": "mills",
+      "id": "esg/NF/Mills/electricity/Device51:LVSB_E_03_3E03_ToTal_Kwh"
+    },
+    "Fields": {
+      "reading": "",
+      "value": 38956.04
+    },
+    "T": "2023-10-28T03:52:19.369458784Z"
+  },
+  {
+    "Name": "mp_raw_3000014",
+    "Tags": {
+      "buildingName": "mills",
+      "id": "esg/NF/Mills/electricity/Device51:LVSB_E_03_3E04_ToTal_Kwh"
+    },
+    "Fields": {
+      "reading": "",
+      "value": 36301.11
+    },
+    "T": "2023-10-28T03:52:19.369458784Z"
+  },
+  {
+    "Name": "mp_raw_3000014",
+    "Tags": {
+      "buildingName": "mills",
+      "id": "esg/NF/Mills/electricity/Device51:LVSB_E_03_3E05_ToTal_Kwh"
+    },
+    "Fields": {
+      "reading": "",
+      "value": 29131.08
+    },
+    "T": "2023-10-28T03:52:19.369458784Z"
+  },
+  {
+    "Name": "mp_raw_3000014",
+    "Tags": {
+      "buildingName": "mills",
+      "id": "esg/NF/Mills/electricity/Device51:LVSB_N_03_3C01_ToTal_Kwh"
+    },
+    "Fields": {
+      "reading": "",
+      "value": 7.64
+    },
+    "T": "2023-10-28T03:52:19.369458784Z"
+  },
+  {
+    "Name": "mp_raw_3000014",
+    "Tags": {
+      "buildingName": "mills",
+      "id": "esg/NF/Mills/electricity/Device51:LVSB_N_03_3H01_ToTal_Kwh"
+    },
+    "Fields": {
+      "reading": "",
+      "value": 7537.65
+    },
+    "T": "2023-10-28T03:52:19.369458784Z"
+  },
+  {
+    "Name": "mp_raw_3000014",
+    "Tags": {
+      "buildingName": "mills",
+      "id": "esg/NF/Mills/electricity/Device51:LVSB_N_03_3N01_ToTal_Kwh"
+    },
+    "Fields": {
+      "reading": "",
+      "value": 662221.38
+    },
+    "T": "2023-10-28T03:52:19.369458784Z"
+  },
+  {
+    "Name": "mp_raw_3000014",
+    "Tags": {
+      "buildingName": "mills",
+      "id": "esg/NF/Mills/electricity/Device51:LVSB_N_03_3N02_ToTal_Kwh"
+    },
+    "Fields": {
+      "reading": "",
+      "value": 550882.94
+    },
+    "T": "2023-10-28T03:52:19.369458784Z"
+  },
+  {
+    "Name": "mp_raw_3000014",
+    "Tags": {
+      "buildingName": "mills",
+      "id": "esg/NF/Mills/electricity/Device51:LVSB_N_03_3N03_ToTal_Kwh"
+    },
+    "Fields": {
+      "reading": "",
+      "value": 364011.69
+    },
+    "T": "2023-10-28T03:52:19.369458784Z"
+  },
+  {
+    "Name": "mp_raw_3000014",
+    "Tags": {
+      "buildingName": "mills",
+      "id": "esg/NF/Mills/electricity/Device51:LVSB_N_03_3N06_ToTal_Kwh"
+    },
+    "Fields": {
+      "reading": "",
+      "value": 205432.03
+    },
+    "T": "2023-10-28T03:52:19.369458784Z"
+  },
+  {
+    "Name": "mp_raw_3000014",
+    "Tags": {
+      "buildingName": "mills",
+      "id": "esg/NF/Mills/electricity/Device51:LVSB_N_03_ACB_T3_ToTal_Kwh"
+    },
+    "Fields": {
+      "reading": "",
+      "value": 8289126
+    },
+    "T": "2023-10-28T03:52:19.369458784Z"
+  },
+  {
+    "Name": "mp_raw_3000014",
+    "Tags": {
+      "buildingName": "mills",
+      "id": "esg/NF/Mills/electricity/Device51:LVSB_N_03_ACB_T3_1_ToTal_Kwh"
+    },
+    "Fields": {
+      "reading": "",
+      "value": 8194281.5
+    },
+    "T": "2023-10-28T03:52:19.369458784Z"
+  },
+  {
+    "Name": "mp_raw_3000014",
+    "Tags": {
+      "buildingName": "mills",
+      "id": "esg/NF/Mills/electricity/Device51:LVSB_N_03_ACB_T3_2_ToTal_Kwh"
+    },
+    "Fields": {
+      "reading": "",
+      "value": 0
+    },
+    "T": "2023-10-28T03:52:19.369458784Z"
+  },
+  {
+    "Name": "mp_raw_3000014",
+    "Tags": {
+      "buildingName": "mills",
+      "id": "esg/NF/Mills/electricity/Device51:LVSB_N_03_ACB_T3_3_ToTal_Kwh"
+    },
+    "Fields": {
+      "reading": "",
+      "value": 3971754
+    },
+    "T": "2023-10-28T03:52:19.369458784Z"
+  },
+  {
+    "Name": "mp_raw_3000014",
+    "Tags": {
+      "buildingName": "mills",
+      "id": "esg/NF/Mills/electricity/Device51:LVSB_N_03_ACB_T3_4_ToTal_Kwh"
+    },
+    "Fields": {
+      "reading": "",
+      "value": 2329649.25
+    },
+    "T": "2023-10-28T03:52:19.369458784Z"
+  },
+  {
+    "Name": "mp_raw_3000014",
+    "Tags": {
+      "buildingName": "mills",
+      "id": "esg/NF/Mills/electricity/Device51:GSB_E_03_3G01_ToTal_Kwh"
+    },
+    "Fields": {
+      "reading": "",
+      "value": 89.05
+    },
+    "T": "2023-10-28T03:52:19.369458784Z"
+  },
+  {
+    "Name": "mp_raw_3000014",
+    "Tags": {
+      "buildingName": "mills",
+      "id": "esg/NF/Mills/electricity/Device51:GSB_E_03_3G02_ToTal_Kwh"
+    },
+    "Fields": {
+      "reading": "",
+      "value": 0
+    },
+    "T": "2023-10-28T03:52:19.369458784Z"
+  },
+  {
+    "Name": "mp_raw_3000014",
+    "Tags": {
+      "buildingName": "mills",
+      "id": "esg/NF/Mills/electricity/Device51:GSB_E_03_3G03_ToTal_Kwh"
+    },
+    "Fields": {
+      "reading": "",
+      "value": 1.07
+    },
+    "T": "2023-10-28T03:52:19.369458784Z"
+  },
+  {
+    "Name": "mp_raw_3000014",
+    "Tags": {
+      "buildingName": "mills",
+      "id": "esg/NF/Mills/electricity/Device51:GSB_E_03_3G04_ToTal_Kwh"
+    },
+    "Fields": {
+      "reading": "",
+      "value": 34.46
+    },
+    "T": "2023-10-28T03:52:19.369458784Z"
+  },
+  {
+    "Name": "mp_raw_3000014",
+    "Tags": {
+      "buildingName": "mills",
+      "id": "esg/NF/Mills/electricity/Device51:GSB_E_03_3G06_ToTal_Kwh"
+    },
+    "Fields": {
+      "reading": "",
+      "value": 0.36
+    },
+    "T": "2023-10-28T03:52:19.369458784Z"
+  },
+  {
+    "Name": "mp_raw_3000014",
+    "Tags": {
+      "buildingName": "mills",
+      "id": "esg/NF/Mills/electricity/Device51:1250A_4_Pole_Incoming_Acb_#5B_ToTal_Kwh"
+    },
+    "Fields": {
+      "reading": "",
+      "value": 3974450.25
+    },
+    "T": "2023-10-28T03:52:19.369458784Z"
+  },
+  {
+    "Name": "mp_raw_3000014",
+    "Tags": {
+      "buildingName": "mills",
+      "id": "esg/NF/Mills/electricity/Device51:1250A_4_Pole_Incoming_Acb_#6B_ToTal_Kwh"
+    },
+    "Fields": {
+      "reading": "",
+      "value": 3110943
+    },
+    "T": "2023-10-28T03:52:19.369458784Z"
+  },
+  {
+    "Name": "mp_raw_3000014",
+    "Tags": {
+      "buildingName": "mills",
+      "id": "esg/NF/Mills/cooling_load/Device51:CDWP_01_ToTal_Kwh"
+    },
+    "Fields": {
+      "reading": "",
+      "value": 330229
+    },
+    "T": "2023-10-28T03:52:19.369458784Z"
+  },
+  {
+    "Name": "mp_raw_3000014",
+    "Tags": {
+      "buildingName": "mills",
+      "id": "esg/NF/Mills/cooling_load/Device51:CDWP_02_ToTal_Kwh"
+    },
+    "Fields": {
+      "reading": "",
+      "value": 303803.28
+    },
+    "T": "2023-10-28T03:52:19.369458784Z"
+  },
+  {
+    "Name": "mp_raw_3000014",
+    "Tags": {
+      "buildingName": "mills",
+      "id": "esg/NF/Mills/cooling_load/Device51:CDWP_03_ToTal_Kwh"
+    },
+    "Fields": {
+      "reading": "",
+      "value": 328453.53
+    },
+    "T": "2023-10-28T03:52:19.369458784Z"
+  },
+  {
+    "Name": "mp_raw_3000014",
+    "Tags": {
+      "buildingName": "mills",
+      "id": "esg/NF/Mills/cooling_load/Device51:CDWP_04_ToTal_Kwh"
+    },
+    "Fields": {
+      "reading": "",
+      "value": 157122.73
+    },
+    "T": "2023-10-28T03:52:19.369458784Z"
+  },
+  {
+    "Name": "mp_raw_3000014",
+    "Tags": {
+      "buildingName": "mills",
+      "id": "esg/NF/Mills/cooling_load/Device51:CDWP_05_ToTal_Kwh"
+    },
+    "Fields": {
+      "reading": "",
+      "value": 159974.86
+    },
+    "T": "2023-10-28T03:52:19.369458784Z"
+  },
+  {
+    "Name": "mp_raw_3000014",
+    "Tags": {
+      "buildingName": "mills",
+      "id": "esg/NF/Mills/cooling_load/Device51:CHWP_01_ToTal_Kwh"
+    },
+    "Fields": {
+      "reading": "",
+      "value": 242548.66
+    },
+    "T": "2023-10-28T03:52:19.369458784Z"
+  },
+  {
+    "Name": "mp_raw_3000014",
+    "Tags": {
+      "buildingName": "mills",
+      "id": "esg/NF/Mills/cooling_load/Device51:CHWP_02_ToTal_Kwh"
+    },
+    "Fields": {
+      "reading": "",
+      "value": 241296.97
+    },
+    "T": "2023-10-28T03:52:19.369458784Z"
+  },
+  {
+    "Name": "mp_raw_3000014",
+    "Tags": {
+      "buildingName": "mills",
+      "id": "esg/NF/Mills/cooling_load/Device51:CHWP_03_ToTal_Kwh"
+    },
+    "Fields": {
+      "reading": "",
+      "value": 239613.92
+    },
+    "T": "2023-10-28T03:52:19.369458784Z"
+  },
+  {
+    "Name": "mp_raw_3000014",
+    "Tags": {
+      "buildingName": "mills",
+      "id": "esg/NF/Mills/cooling_load/Device51:CHWP_04_ToTal_Kwh"
+    },
+    "Fields": {
+      "reading": "",
+      "value": 200726.03
+    },
+    "T": "2023-10-28T03:52:19.369458784Z"
+  },
+  {
+    "Name": "mp_raw_3000014",
+    "Tags": {
+      "buildingName": "mills",
+      "id": "esg/NF/Mills/cooling_load/Device51:CHWP_05_ToTal_Kwh"
+    },
+    "Fields": {
+      "reading": "",
+      "value": 207244.52
+    },
+    "T": "2023-10-28T03:52:19.369458784Z"
+  },
+  {
+    "Name": "mp_raw_3000014",
+    "Tags": {
+      "buildingName": "mills",
+      "id": "esg/NF/Mills/cooling_load/Device51:CT_01_ToTal_Kwh"
+    },
+    "Fields": {
+      "reading": "",
+      "value": 163943.58
+    },
+    "T": "2023-10-28T03:52:19.369458784Z"
+  },
+  {
+    "Name": "mp_raw_3000014",
+    "Tags": {
+      "buildingName": "mills",
+      "id": "esg/NF/Mills/cooling_load/Device51:CT_02_ToTal_Kwh"
+    },
+    "Fields": {
+      "reading": "",
+      "value": 177872.72
+    },
+    "T": "2023-10-28T03:52:19.369458784Z"
+  },
+  {
+    "Name": "mp_raw_3000014",
+    "Tags": {
+      "buildingName": "mills",
+      "id": "esg/NF/Mills/cooling_load/Device51:CT_03_ToTal_Kwh"
+    },
+    "Fields": {
+      "reading": "",
+      "value": 42158.55
+    },
+    "T": "2023-10-28T03:52:19.369458784Z"
+  },
+  {
+    "Name": "mp_raw_3000014",
+    "Tags": {
+      "buildingName": "mills",
+      "id": "esg/NF/Mills/electricity/Device51:GSB_E_01_1G01_ToTal_Kwh"
+    },
+    "Fields": {
+      "reading": "",
+      "value": 2821.39
+    },
+    "T": "2023-10-28T03:52:19.369458784Z"
+  },
+  {
+    "Name": "mp_raw_3000014",
+    "Tags": {
+      "buildingName": "mills",
+      "id": "esg/NF/Mills/electricity/Device51:GSB_E_01_1G02_ToTal_Kwh"
+    },
+    "Fields": {
+      "reading": "",
+      "value": 0
+    },
+    "T": "2023-10-28T03:52:19.369458784Z"
+  },
+  {
+    "Name": "mp_raw_3000014",
+    "Tags": {
+      "buildingName": "mills",
+      "id": "esg/NF/Mills/electricity/Device51:5TSB_4F_02_ToTal_Kwh"
+    },
+    "Fields": {
+      "reading": "",
+      "value": 482720.69
+    },
+    "T": "2023-10-28T03:52:19.369458784Z"
+  },
+  {
+    "Name": "mp_raw_3000014",
+    "Tags": {
+      "buildingName": "mills",
+      "id": "esg/NF/Mills/electricity/Device51:5TSB_5F_02_ToTal_Kwh"
+    },
+    "Fields": {
+      "reading": "",
+      "value": 142848.41
+    },
+    "T": "2023-10-28T03:52:19.369458784Z"
+  },
+  {
+    "Name": "mp_raw_3000014",
+    "Tags": {
+      "buildingName": "mills",
+      "id": "esg/NF/Mills/electricity/Device51:5TSB_6F_02_ToTal_Kwh"
+    },
+    "Fields": {
+      "reading": "",
+      "value": 523334.16
+    },
+    "T": "2023-10-28T03:52:19.369458784Z"
+  },
+  {
+    "Name": "mp_raw_3000014",
+    "Tags": {
+      "buildingName": "mills",
+      "id": "esg/NF/Mills/electricity/Device51:LVSB_N_04_4C01_ToTal_Kwh"
+    },
+    "Fields": {
+      "reading": "",
+      "value": 42.06
+    },
+    "T": "2023-10-28T03:52:19.369458784Z"
+  },
+  {
+    "Name": "mp_raw_3000014",
+    "Tags": {
+      "buildingName": "mills",
+      "id": "esg/NF/Mills/electricity/Device51:LVSB_N_04_4H01_ToTal_Kwh"
+    },
+    "Fields": {
+      "reading": "",
+      "value": 0.17
+    },
+    "T": "2023-10-28T03:52:19.369458784Z"
+  },
+  {
+    "Name": "mp_raw_3000014",
+    "Tags": {
+      "buildingName": "mills",
+      "id": "esg/NF/Mills/electricity/Device51:LVSB_N_04_4N02_ToTal_Kwh"
+    },
+    "Fields": {
+      "reading": "",
+      "value": 257833.03
+    },
+    "T": "2023-10-28T03:52:19.369458784Z"
+  },
+  {
+    "Name": "mp_raw_3000014",
+    "Tags": {
+      "buildingName": "mills",
+      "id": "esg/NF/Mills/electricity/Device51:LVSB_N_04_4N03_ToTal_Kwh"
+    },
+    "Fields": {
+      "reading": "",
+      "value": 607602.88
+    },
+    "T": "2023-10-28T03:52:19.369458784Z"
+  },
+  {
+    "Name": "mp_raw_3000014",
+    "Tags": {
+      "buildingName": "mills",
+      "id": "esg/NF/Mills/electricity/Device51:LVSB_N_04_4N05_ToTal_Kwh"
+    },
+    "Fields": {
+      "reading": "",
+      "value": 678.85
+    },
+    "T": "2023-10-28T03:52:19.369458784Z"
+  },
+  {
+    "Name": "mp_raw_3000014",
+    "Tags": {
+      "buildingName": "mills",
+      "id": "esg/NF/Mills/electricity/Device51:LVSB_N_04_4N06_ToTal_Kwh"
+    },
+    "Fields": {
+      "reading": "",
+      "value": 0
+    },
+    "T": "2023-10-28T03:52:19.369458784Z"
+  },
+  {
+    "Name": "mp_raw_3000014",
+    "Tags": {
+      "buildingName": "mills",
+      "id": "esg/NF/Mills/electricity/Device51:LVSB_N_04_4T01_ToTal_Kwh"
+    },
+    "Fields": {
+      "reading": "",
+      "value": 118128.14
+    },
+    "T": "2023-10-28T03:52:19.369458784Z"
+  },
+  {
+    "Name": "mp_raw_3000014",
+    "Tags": {
+      "buildingName": "mills",
+      "id": "esg/NF/Mills/electricity/Device51:LVSB_N_04_4T02_ToTal_Kwh"
+    },
+    "Fields": {
+      "reading": "",
+      "value": 531497.06
+    },
+    "T": "2023-10-28T03:52:19.369458784Z"
+  },
+  {
+    "Name": "mp_raw_3000014",
+    "Tags": {
+      "buildingName": "mills",
+      "id": "esg/NF/Mills/electricity/Device51:LVSB_N_04_4T03_ToTal_Kwh"
+    },
+    "Fields": {
+      "reading": "",
+      "value": 835390.06
+    },
+    "T": "2023-10-28T03:52:19.369458784Z"
+  },
+  {
+    "Name": "mp_raw_3000014",
+    "Tags": {
+      "buildingName": "mills",
+      "id": "esg/NF/Mills/electricity/Device51:LVSB_N_04_4T04_ToTal_Kwh"
+    },
+    "Fields": {
+      "reading": "",
+      "value": 241872.56
+    },
+    "T": "2023-10-28T03:52:19.369458784Z"
+  },
+  {
+    "Name": "mp_raw_3000014",
+    "Tags": {
+      "buildingName": "mills",
+      "id": "esg/NF/Mills/electricity/Device51:LVSB_N_04_4T05_ToTal_Kwh"
+    },
+    "Fields": {
+      "reading": "",
+      "value": 304144.81
+    },
+    "T": "2023-10-28T03:52:19.369458784Z"
+  },
+  {
+    "Name": "mp_raw_3000014",
+    "Tags": {
+      "buildingName": "mills",
+      "id": "esg/NF/Mills/electricity/Device51:LVSB_N_04_4T07_ToTal_Kwh"
+    },
+    "Fields": {
+      "reading": "",
+      "value": 0.07
+    },
+    "T": "2023-10-28T03:52:19.369458784Z"
+  },
+  {
+    "Name": "mp_raw_3000014",
+    "Tags": {
+      "buildingName": "mills",
+      "id": "esg/NF/Mills/electricity/Device51:LVSB_N_04_4T08_ToTal_Kwh"
+    },
+    "Fields": {
+      "reading": "",
+      "value": 2290066.25
+    },
+    "T": "2023-10-28T03:52:19.369458784Z"
+  },
+  {
+    "Name": "mp_raw_3000014",
+    "Tags": {
+      "buildingName": "mills",
+      "id": "esg/NF/Mills/electricity/Device51:LVSB_N_04_Acb_T4_ToTal_Kwh"
+    },
+    "Fields": {
+      "reading": "",
+      "value": 7027822.5
+    },
+    "T": "2023-10-28T03:52:19.369458784Z"
+  },
+  {
+    "Name": "mp_raw_3000014",
+    "Tags": {
+      "buildingName": "mills",
+      "id": "esg/NF/Mills/electricity/Device51:LVSB_N_04_Acb_T4_1_ToTal_Kwh"
+    },
+    "Fields": {
+      "reading": "",
+      "value": 1311853.25
+    },
+    "T": "2023-10-28T03:52:19.369458784Z"
+  },
+  {
+    "Name": "mp_raw_3000014",
+    "Tags": {
+      "buildingName": "mills",
+      "id": "esg/NF/Mills/electricity/Device51:LVSB_N_04_Acb_T4_2_ToTal_Kwh"
+    },
+    "Fields": {
+      "reading": "",
+      "value": 335800.5
+    },
+    "T": "2023-10-28T03:52:19.369458784Z"
+  },
+  {
+    "Name": "mp_raw_3000014",
+    "Tags": {
+      "buildingName": "mills",
+      "id": "esg/NF/Mills/electricity/Device51:LVSB_E_04_4E01_ToTal_Kwh"
+    },
+    "Fields": {
+      "reading": "",
+      "value": 176801.94
+    },
+    "T": "2023-10-28T03:52:19.369458784Z"
+  },
+  {
+    "Name": "mp_raw_3000014",
+    "Tags": {
+      "buildingName": "mills",
+      "id": "esg/NF/Mills/electricity/Device51:LVSB_E_04_4E02_ToTal_Kwh"
+    },
+    "Fields": {
+      "reading": "",
+      "value": 6675.88
+    },
+    "T": "2023-10-28T03:52:19.369458784Z"
+  },
+  {
+    "Name": "mp_raw_3000014",
+    "Tags": {
+      "buildingName": "mills",
+      "id": "esg/NF/Mills/electricity/Device51:LVSB_E_04_4E03_ToTal_Kwh"
+    },
+    "Fields": {
+      "reading": "",
+      "value": 20298.84
+    },
+    "T": "2023-10-28T03:52:19.369458784Z"
+  },
+  {
+    "Name": "mp_raw_3000014",
+    "Tags": {
+      "buildingName": "mills",
+      "id": "esg/NF/Mills/electricity/Device51:LVSB_E_04_4E04_ToTal_Kwh"
+    },
+    "Fields": {
+      "reading": "",
+      "value": 20932.56
+    },
+    "T": "2023-10-28T03:52:19.369458784Z"
+  },
+  {
+    "Name": "mp_raw_3000014",
+    "Tags": {
+      "buildingName": "mills",
+      "id": "esg/NF/Mills/electricity/Device51:LVSB_E_04_4E05_ToTal_Kwh"
+    },
+    "Fields": {
+      "reading": "",
+      "value": 25699.66
+    },
+    "T": "2023-10-28T03:52:19.369458784Z"
+  },
+  {
+    "Name": "mp_raw_3000014",
+    "Tags": {
+      "buildingName": "mills",
+      "id": "esg/NF/Mills/electricity/Device51:Mill6_Energy_Meter_ToTal_Kwh"
+    },
+    "Fields": {
+      "reading": "",
+      "value": 11249871
+    },
+    "T": "2023-10-28T03:52:19.369458784Z"
+  },
+  {
+    "Name": "mp_raw_3000014",
+    "Tags": {
+      "buildingName": "mills",
+      "id": "esg/NF/Mills/electricity/Device51:6TG11_ToTal_Kwh"
+    },
+    "Fields": {
+      "reading": "",
+      "value": 0
+    },
+    "T": "2023-10-28T03:52:19.369458784Z"
+  },
+  {
+    "Name": "mp_raw_3000014",
+    "Tags": {
+      "buildingName": "mills",
+      "id": "esg/NF/Mills/electricity/Device51:Genset_ToTal_Kwh"
+    },
+    "Fields": {
+      "reading": "",
+      "value": 2121.05
+    },
+    "T": "2023-10-28T03:52:19.369458784Z"
+  },
+  {
+    "Name": "mp_raw_3000014",
+    "Tags": {
+      "buildingName": "mills",
+      "id": "esg/NF/Mills/electricity/Device51:Analog_Value_M4_Shop116_Total_kWh"
+    },
+    "Fields": {
+      "reading": "",
+      "value": 105038.83
+    },
+    "T": "2023-10-28T03:52:19.369458784Z"
+  },
+  {
+    "Name": "mp_raw_3000014",
+    "Tags": {
+      "buildingName": "mills",
+      "id": "esg/NF/Mills/electricity/Device51:Analog_Value_M4_Shop120_Total_kWh"
+    },
+    "Fields": {
+      "reading": "",
+      "value": 324547.91
+    },
+    "T": "2023-10-28T03:52:19.369458784Z"
+  },
+  {
+    "Name": "mp_raw_3000014",
+    "Tags": {
+      "buildingName": "mills",
+      "id": "esg/NF/Mills/electricity/Device51:Analog_Value_M4_Shop121_Total_kWh"
+    },
+    "Fields": {
+      "reading": "",
+      "value": 41152.96
+    },
+    "T": "2023-10-28T03:52:19.369458784Z"
+  },
+  {
+    "Name": "mp_raw_3000014",
+    "Tags": {
+      "buildingName": "mills",
+      "id": "esg/NF/Mills/electricity/Device51:Analog_Value_M4_Shop122_Total_kWh"
+    },
+    "Fields": {
+      "reading": "",
+      "value": 70471.49
+    },
+    "T": "2023-10-28T03:52:19.369458784Z"
+  },
+  {
+    "Name": "mp_raw_3000014",
+    "Tags": {
+      "buildingName": "mills",
+      "id": "esg/NF/Mills/electricity/Device53:Analog_Value_M5_Shop101_Total_kWh"
+    },
+    "Fields": {
+      "reading": "",
+      "value": 66090.87
+    },
+    "T": "2023-10-28T03:52:19.369458784Z"
+  },
+  {
+    "Name": "mp_raw_3000014",
+    "Tags": {
+      "buildingName": "mills",
+      "id": "esg/NF/Mills/electricity/Device53:Analog_Value_M5_Shop102_Total_kWh"
+    },
+    "Fields": {
+      "reading": "",
+      "value": 9390
+    },
+    "T": "2023-10-28T03:52:19.369458784Z"
+  },
+  {
+    "Name": "mp_raw_3000014",
+    "Tags": {
+      "buildingName": "mills",
+      "id": "esg/NF/Mills/electricity/Device53:Analog_Value_M5_Shop103_Total_kWh"
+    },
+    "Fields": {
+      "reading": "",
+      "value": 106098.4
+    },
+    "T": "2023-10-28T03:52:19.369458784Z"
+  },
+  {
+    "Name": "mp_raw_3000014",
+    "Tags": {
+      "buildingName": "mills",
+      "id": "esg/NF/Mills/electricity/Device53:Analog_Value_M5_Shop115_Total_kWh"
+    },
+    "Fields": {
+      "reading": "",
+      "value": 0
+    },
+    "T": "2023-10-28T03:52:19.369458784Z"
+  },
+  {
+    "Name": "mp_raw_3000014",
+    "Tags": {
+      "buildingName": "mills",
+      "id": "esg/NF/Mills/electricity/Device53:Analog_Value_M5_Shop123_Total_kWh"
+    },
+    "Fields": {
+      "reading": "",
+      "value": 0
+    },
+    "T": "2023-10-28T03:52:19.369458784Z"
+  },
+  {
+    "Name": "mp_raw_3000014",
+    "Tags": {
+      "buildingName": "mills",
+      "id": "esg/NF/Mills/electricity/Device53:Analog_Value_M5_Shop124_Total_kWh"
+    },
+    "Fields": {
+      "reading": "",
+      "value": 24751.41
+    },
+    "T": "2023-10-28T03:52:19.369458784Z"
+  },
+  {
+    "Name": "mp_raw_3000014",
+    "Tags": {
+      "buildingName": "mills",
+      "id": "esg/NF/Mills/electricity/Device53:Analog_Value_M5_Shop125_Total_kWh"
+    },
+    "Fields": {
+      "reading": "",
+      "value": 20683.38
+    },
+    "T": "2023-10-28T03:52:19.369458784Z"
+  },
+  {
+    "Name": "mp_raw_3000014",
+    "Tags": {
+      "buildingName": "mills",
+      "id": "esg/NF/Mills/electricity/Device53:Analog_Value_M5_Shop126_Total_kWh"
+    },
+    "Fields": {
+      "reading": "",
+      "value": 0
+    },
+    "T": "2023-10-28T03:52:19.369458784Z"
+  },
+  {
+    "Name": "mp_raw_3000014",
+    "Tags": {
+      "buildingName": "mills",
+      "id": "esg/NF/Mills/electricity/Device53:Analog_Value_M5_Shop127_Total_kWh"
+    },
+    "Fields": {
+      "reading": "",
+      "value": 33924.46
+    },
+    "T": "2023-10-28T03:52:19.369458784Z"
+  },
+  {
+    "Name": "mp_raw_3000014",
+    "Tags": {
+      "buildingName": "mills",
+      "id": "esg/NF/Mills/electricity/Device53:Analog_Value_M5_Shop201_Total_kWh"
+    },
+    "Fields": {
+      "reading": "",
+      "value": 16653.11
+    },
+    "T": "2023-10-28T03:52:19.369458784Z"
+  },
+  {
+    "Name": "mp_raw_3000014",
+    "Tags": {
+      "buildingName": "mills",
+      "id": "esg/NF/Mills/electricity/Device53:Analog_Value_M5_Shop202_Total_kWh"
+    },
+    "Fields": {
+      "reading": "",
+      "value": 27544.3
+    },
+    "T": "2023-10-28T03:52:19.369458784Z"
+  },
+  {
+    "Name": "mp_raw_3000014",
+    "Tags": {
+      "buildingName": "mills",
+      "id": "esg/NF/Mills/electricity/Device53:Analog_Value_M5_Shop203_Total_kWh"
+    },
+    "Fields": {
+      "reading": "",
+      "value": 8330.01
+    },
+    "T": "2023-10-28T03:52:19.369458784Z"
+  },
+  {
+    "Name": "mp_raw_3000014",
+    "Tags": {
+      "buildingName": "mills",
+      "id": "esg/NF/Mills/electricity/Device53:Analog_Value_M5_Shop204_Total_kWh"
+    },
+    "Fields": {
+      "reading": "",
+      "value": 307855.75
+    },
+    "T": "2023-10-28T03:52:19.369458784Z"
+  },
+  {
+    "Name": "mp_raw_3000014",
+    "Tags": {
+      "buildingName": "mills",
+      "id": "esg/NF/Mills/electricity/Device53:Analog_Value_M5_Shop205_Total_kWh"
+    },
+    "Fields": {
+      "reading": "",
+      "value": 0
+    },
+    "T": "2023-10-28T03:52:19.369458784Z"
+  },
+  {
+    "Name": "mp_raw_3000014",
+    "Tags": {
+      "buildingName": "mills",
+      "id": "esg/NF/Mills/electricity/Device53:Analog_Value_M5_Shop206_Total_kWh"
+    },
+    "Fields": {
+      "reading": "",
+      "value": 68127.59
+    },
+    "T": "2023-10-28T03:52:19.369458784Z"
+  },
+  {
+    "Name": "mp_raw_3000014",
+    "Tags": {
+      "buildingName": "mills",
+      "id": "esg/NF/Mills/electricity/Device53:Analog_Value_M5_Shop207_Total_kWh"
+    },
+    "Fields": {
+      "reading": "",
+      "value": 0
+    },
+    "T": "2023-10-28T03:52:19.369458784Z"
+  },
+  {
+    "Name": "mp_raw_3000014",
+    "Tags": {
+      "buildingName": "mills",
+      "id": "esg/NF/Mills/electricity/Device53:Analog_Value_M5_Shop301_Total_kWh"
+    },
+    "Fields": {
+      "reading": "",
+      "value": 71681.43
+    },
+    "T": "2023-10-28T03:52:19.369458784Z"
+  },
+  {
+    "Name": "mp_raw_3000014",
+    "Tags": {
+      "buildingName": "mills",
+      "id": "esg/NF/Mills/electricity/Device53:Analog_Value_M5_Shop302_Total_kWh"
+    },
+    "Fields": {
+      "reading": "",
+      "value": 226088.52
+    },
+    "T": "2023-10-28T03:52:19.369458784Z"
+  },
+  {
+    "Name": "mp_raw_3000014",
+    "Tags": {
+      "buildingName": "mills",
+      "id": "esg/NF/Mills/electricity/Device53:Analog_Value_M5_Shop303_Total_kWh"
+    },
+    "Fields": {
+      "reading": "",
+      "value": 97137.2
+    },
+    "T": "2023-10-28T03:52:19.369458784Z"
+  },
+  {
+    "Name": "mp_raw_3000014",
+    "Tags": {
+      "buildingName": "mills",
+      "id": "esg/NF/Mills/electricity/Device53:Analog_Value_M5_Shop304_Total_kWh"
+    },
+    "Fields": {
+      "reading": "",
+      "value": 528109.81
+    },
+    "T": "2023-10-28T03:52:19.369458784Z"
+  },
+  {
+    "Name": "mp_raw_3000014",
+    "Tags": {
+      "buildingName": "mills",
+      "id": "esg/NF/Mills/electricity/Device53:Analog_Value_M5_Shop305_Total_kWh"
+    },
+    "Fields": {
+      "reading": "",
+      "value": 181957.86
+    },
+    "T": "2023-10-28T03:52:19.369458784Z"
+  },
+  {
+    "Name": "mp_raw_3000014",
+    "Tags": {
+      "buildingName": "mills",
+      "id": "esg/NF/Mills/electricity/Device53:Analog_Value_M5_Shop306_Total_kWh"
+    },
+    "Fields": {
+      "reading": "",
+      "value": 24512.1
+    },
+    "T": "2023-10-28T03:52:19.369458784Z"
+  },
+  {
+    "Name": "mp_raw_3000014",
+    "Tags": {
+      "buildingName": "mills",
+      "id": "esg/NF/Mills/electricity/Device53:Analog_Value_M5_Shop307_Total_kWh"
+    },
+    "Fields": {
+      "reading": "",
+      "value": 26452.26
+    },
+    "T": "2023-10-28T03:52:19.369458784Z"
+  },
+  {
+    "Name": "mp_raw_3000014",
+    "Tags": {
+      "buildingName": "mills",
+      "id": "esg/NF/Mills/electricity/Device53:Analog_Value_M5_Shop401_Total_kWh"
+    },
+    "Fields": {
+      "reading": "",
+      "value": 0
+    },
+    "T": "2023-10-28T03:52:19.369458784Z"
+  },
+  {
+    "Name": "mp_raw_3000014",
+    "Tags": {
+      "buildingName": "mills",
+      "id": "esg/NF/Mills/electricity/Device53:Analog_Value_M5_Shop402_Total_kWh"
+    },
+    "Fields": {
+      "reading": "",
+      "value": 0
+    },
+    "T": "2023-10-28T03:52:19.369458784Z"
+  },
+  {
+    "Name": "mp_raw_3000014",
+    "Tags": {
+      "buildingName": "mills",
+      "id": "esg/NF/Mills/electricity/Device53:Analog_Value_M5_Shop501_Total_kWh"
+    },
+    "Fields": {
+      "reading": "",
+      "value": 220030.66
+    },
+    "T": "2023-10-28T03:52:19.369458784Z"
+  },
+  {
+    "Name": "mp_raw_3000014",
+    "Tags": {
+      "buildingName": "mills",
+      "id": "esg/NF/Mills/electricity/Device53:Analog_Value_M5_Shop502_Total_kWh"
+    },
+    "Fields": {
+      "reading": "",
+      "value": 0
+    },
+    "T": "2023-10-28T03:52:19.369458784Z"
+  },
+  {
+    "Name": "mp_raw_3000014",
+    "Tags": {
+      "buildingName": "mills",
+      "id": "esg/NF/Mills/electricity/Device53:Analog_Value_M5_Shop601_Total_kWh"
+    },
+    "Fields": {
+      "reading": "",
+      "value": 542733.69
+    },
+    "T": "2023-10-28T03:52:19.369458784Z"
+  },
+  {
+    "Name": "mp_raw_3000014",
+    "Tags": {
+      "buildingName": "mills",
+      "id": "esg/NF/Mills/electricity/Device53:Analog_Value_M5_Shop602_Total_kWh"
+    },
+    "Fields": {
+      "reading": "",
+      "value": 320047.88
+    },
+    "T": "2023-10-28T03:52:19.369458784Z"
+  },
+  {
+    "Name": "mp_raw_3000014",
+    "Tags": {
+      "buildingName": "mills",
+      "id": "esg/NF/Mills/electricity/Device56:Analog_Value_M5_Shop401_Total_kWh"
+    },
+    "Fields": {
+      "reading": "",
+      "value": 0
+    },
+    "T": "2023-10-28T03:52:19.369458784Z"
+  },
+  {
+    "Name": "mp_raw_3000014",
+    "Tags": {
+      "buildingName": "mills",
+      "id": "esg/NF/Mills/electricity/Device56:Analog_Value_M5_Shop402_Total_kWh"
+    },
+    "Fields": {
+      "reading": "",
+      "value": 0
+    },
+    "T": "2023-10-28T03:52:19.369458784Z"
+  },
+  {
+    "Name": "mp_raw_3000014",
+    "Tags": {
+      "buildingName": "mills",
+      "id": "esg/NF/Mills/electricity/Device56:Analog_Value_M5_Shop501_Total_kWh"
+    },
+    "Fields": {
+      "reading": "",
+      "value": 220030.7
+    },
+    "T": "2023-10-28T03:52:19.369458784Z"
+  },
+  {
+    "Name": "mp_raw_3000014",
+    "Tags": {
+      "buildingName": "mills",
+      "id": "esg/NF/Mills/electricity/Device56:Analog_Value_M5_Shop502_Total_kWh"
+    },
+    "Fields": {
+      "reading": "",
+      "value": 0
+    },
+    "T": "2023-10-28T03:52:19.369458784Z"
+  },
+  {
+    "Name": "mp_raw_3000014",
+    "Tags": {
+      "buildingName": "mills",
+      "id": "esg/NF/Mills/electricity/Device56:Analog_Value_M5_Shop601_Total_kWh"
+    },
+    "Fields": {
+      "reading": "",
+      "value": 542733.69
+    },
+    "T": "2023-10-28T03:52:19.369458784Z"
+  },
+  {
+    "Name": "mp_raw_3000014",
+    "Tags": {
+      "buildingName": "mills",
+      "id": "esg/NF/Mills/electricity/Device56:Analog_Value_M5_Shop602_Total_kWh"
+    },
+    "Fields": {
+      "reading": "",
+      "value": 320047.91
+    },
+    "T": "2023-10-28T03:52:19.369458784Z"
+  },
+  {
+    "Name": "mp_raw_3000014",
+    "Tags": {
+      "buildingName": "mills",
+      "id": "esg/NF/Mills/electricity/Device58:Analog_Value_M6_ShopG02_Total_kWh"
+    },
+    "Fields": {
+      "reading": "",
+      "value": 5500.34
+    },
+    "T": "2023-10-28T03:52:19.369458784Z"
+  },
+  {
+    "Name": "mp_raw_3000014",
+    "Tags": {
+      "buildingName": "mills",
+      "id": "esg/NF/Mills/electricity/Device58:Analog_Value_M6_ShopG03_Total_kWh"
+    },
+    "Fields": {
+      "reading": "",
+      "value": 0
+    },
+    "T": "2023-10-28T03:52:19.369458784Z"
+  },
+  {
+    "Name": "mp_raw_3000014",
+    "Tags": {
+      "buildingName": "mills",
+      "id": "esg/NF/Mills/electricity/Device58:Analog_Value_M6_ShopG04_Total_kWh"
+    },
+    "Fields": {
+      "reading": "",
+      "value": 1180.68
+    },
+    "T": "2023-10-28T03:52:19.369458784Z"
+  },
+  {
+    "Name": "mp_raw_3000014",
+    "Tags": {
+      "buildingName": "mills",
+      "id": "esg/NF/Mills/electricity/Device58:Analog_Value_M6_ShopG06_Total_kWh"
+    },
+    "Fields": {
+      "reading": "",
+      "value": 0
+    },
+    "T": "2023-10-28T03:52:19.369458784Z"
+  },
+  {
+    "Name": "mp_raw_3000014",
+    "Tags": {
+      "buildingName": "mills",
+      "id": "esg/NF/Mills/electricity/Device58:Analog_Value_M6_ShopG07_Total_kWh"
+    },
+    "Fields": {
+      "reading": "",
+      "value": 0
+    },
+    "T": "2023-10-28T03:52:19.369458784Z"
+  },
+  {
+    "Name": "mp_raw_3000014",
+    "Tags": {
+      "buildingName": "mills",
+      "id": "esg/NF/Mills/electricity/Device58:Analog_Value_M6_ShopG12_Total_kWh"
+    },
+    "Fields": {
+      "reading": "",
+      "value": 0
+    },
+    "T": "2023-10-28T03:52:19.369458784Z"
+  },
+  {
+    "Name": "mp_raw_3000014",
+    "Tags": {
+      "buildingName": "mills",
+      "id": "esg/NF/Mills/electricity/Device53:Analog_Value_M5_Shop114_Total_kWh"
+    },
+    "Fields": {
+      "reading": "",
+      "value": 9295.46
+    },
+    "T": "2023-10-28T03:52:19.369458784Z"
+  },
+  {
+    "Name": "mp_raw_3000014",
+    "Tags": {
+      "buildingName": "mills",
+      "id": "esg/NF/Mills/electricity/Device1:ShopG01A_Total_kWh"
+    },
+    "Fields": {
+      "reading": "",
+      "value": 10
+    },
+    "T": "2023-10-28T03:52:19.369458784Z"
+  },
+  {
+    "Name": "mp_raw_3000014",
+    "Tags": {
+      "buildingName": "mills",
+      "id": "esg/NF/Mills/electricity/Device1:2F_Exhibition_total_kwh"
+    },
+    "Fields": {
+      "reading": "",
+      "value": 2594211
+    },
+    "T": "2023-10-28T03:52:19.369458784Z"
+  },
+  {
+    "Name": "mp_raw_3000014",
+    "Tags": {
+      "buildingName": "mills",
+      "id": "esg/NF/Mills/electricity/Device53:Shop114A_Total_kWh"
+    },
+    "Fields": {
+      "reading": "",
+      "value": 0
+    },
+    "T": "2023-10-28T03:52:19.369458784Z"
+  }
+]
