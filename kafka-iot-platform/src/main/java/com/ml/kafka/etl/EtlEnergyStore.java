@@ -20,6 +20,7 @@ import org.apache.kafka.streams.kstream.Materialized;
 import org.apache.kafka.streams.kstream.Named;
 import org.apache.kafka.streams.kstream.SlidingWindows;
 import org.apache.kafka.streams.processor.PunctuationType;
+import org.apache.kafka.streams.processor.api.ContextualProcessor;
 import org.apache.kafka.streams.processor.api.Processor;
 import org.apache.kafka.streams.processor.api.ProcessorContext;
 import org.apache.kafka.streams.processor.api.Record;
@@ -34,7 +35,6 @@ import com.ml.kafka.model.bms.*;
 import com.ml.kafka.model.bms.json.JSONDeserializer;
 import com.ml.kafka.model.bms.json.JSONSerde;
 import com.ml.kafka.model.bms.json.JSONSerializer;
-
 
 /*
 
@@ -59,7 +59,10 @@ kafka-console-producer \
   --property key.separator=":::"
 
 
-{"_t":"bms.type","id":"user2","itemType":"elec"}:::{"_t":"bms.etl","id":"user1","value":31.431,"timestamp":15934567,"status":"1"}
+{"_t":"bms.type","id":"user3","itemType":"elec"}:::{"_t":"bms.etl","id":"user1","value":31.431,"timestamp":15934567,"status":"1"}
+{"_t":"bms.type","id":"user3","itemType":"elec"}:::{"_t":"bms.etl","id":"user1","value":41.431,"timestamp":15934567,"status":"1"}
+{"_t":"bms.type","id":"user3","itemType":"elec"}:::{"_t":"bms.etl","id":"user1","value":141.431,"timestamp":15934567,"status":"1"}
+
 
 {"_t":"bms.type","id":"user2","itemType":"elec"}:::{"_t":"bms.etl","id":"user1","value":41.431,"timestamp":15934567,"status":"1"}
 
@@ -68,8 +71,6 @@ mvn exec:java -Dexec.mainClass=com.ml.kafka.etl.EtlEnergyStore
 
 
  */
-
-
 
 @SuppressWarnings({ "WeakerAccess", "unused" })
 public class EtlEnergyStore {
@@ -84,20 +85,34 @@ public class EtlEnergyStore {
         @Override
         public void init(final ProcessorContext<BMSDataType, BMSEtlData> context) {
             this.context = context;
+            System.out.println("ST");
             kvStore = this.context.getStateStore(stateStoreName);
+            System.out.println("ED");
         }
 
         @Override
         public void process(final Record<BMSDataType, BMSEtlData> record) {
+            System.out.println("START_KV");
+            System.out.println(kvStore);
             final BMSEtlData oldValue = kvStore.get(record.key());
-            final BMSEtlData currentValue = record.value();
-            if (currentValue.value > oldValue.value) {
-                this.context.forward(new Record<>(record.key(),
-                        new BMSEtlData(currentValue.id, currentValue.value - oldValue.value, currentValue.timestamp, 1),
-                        0));
-                kvStore.put(record.key(), currentValue);
+            if (oldValue == null) {
+                kvStore.put(record.key(), record.value());
+                System.out.println("NULL");
+            } else {
+                System.out.println(record);
+                System.out.println("START_KV2");
+                final BMSEtlData currentValue = record.value();
+                System.out.println(oldValue.toString());
+                System.out.println(currentValue.toString());
+                System.out.println("START_KV3");
+                if (currentValue.value > oldValue.value) {
+                    this.context.forward(new Record<>(record.key(),
+                            new BMSEtlData(currentValue.id, currentValue.value - oldValue.value, currentValue.timestamp,
+                                    1),
+                            0));
+                    kvStore.put(record.key(), currentValue);
+                }
             }
-
         }
 
         @Override
@@ -123,7 +138,6 @@ public class EtlEnergyStore {
 
         final StreamsBuilder builder = new StreamsBuilder();
 
-
         JSONDeserializer<BMSDataType> BMSDataTypeJsonDeserializer = new JSONDeserializer<>(BMSDataType.class);
         JSONSerializer<BMSDataType> BMSDataTypeJsonSerializer = new JSONSerializer<>();
 
@@ -138,15 +152,48 @@ public class EtlEnergyStore {
                 Stores.persistentKeyValueStore(stateStoreName),
                 BMSDataTypeSerde,
                 BMSEtlDataSerde);
+
         builder.addStateStore(keyValueStoreBuilder);
 
-        final KStream<BMSDataType, BMSEtlData> stream = builder.stream(stream_name, Consumed.with(new JSONSerde<>(), new JSONSerde<>()));
+        final KStream<BMSDataType, BMSEtlData> stream = builder.stream(stream_name,
+                Consumed.with(new JSONSerde<>(), new JSONSerde<>()));
 
         stream.map((key, value) -> {
             System.out.println(key.toString());
             System.out.println(value.toString());
+            return KeyValue.pair(key, value);
+        })
+                // .process(() -> new ContextualProcessor<BMSDataType, BMSEtlData, BMSDataType,
+                // BMSEtlData>() {
+                // @Override
+                // public void process(Record<BMSDataType, BMSEtlData> record) {
+                // System.out.println(record.value().toString());
+                // System.out.println(context());
+                // final KeyValueStore<BMSDataType, BMSEtlData> kvStore =
+                // context().getStateStore(stateStoreName);
+                // System.out.println(kvStore);
+                // final BMSEtlData oldValue = kvStore.get(record.key());
+                // final BMSEtlData currentValue = record.value();
+                // System.out.println(oldValue.toString());
+                // System.out.println(currentValue.toString());
+                // if (currentValue.value > oldValue.value) {
+                // context().forward(new Record<>(record.key(),
+                // new BMSEtlData(currentValue.id, currentValue.value - oldValue.value,
+                // currentValue.timestamp, 1),
+                // 0));
+                // kvStore.put(record.key(), currentValue);
+                // }
+                // }
+                // }, Named.as(stateStoreName))
+
+                // .to(sink_name);
+                .process(() -> new EtlEnergyProcessor(), stateStoreName).map((key, value) -> {
+                    System.out.println("_______");
+                    System.out.println(key.toString());
+                    System.out.println(value.toString());
+                    System.out.println("_______");
                     return KeyValue.pair(key, value);
-                }).process(() -> new EtlEnergyProcessor(), Named.as(sink_name)).to(sink_name);
+                }).to(sink_name);
 
         final KafkaStreams streams = new KafkaStreams(builder.build(), props);
         final CountDownLatch latch = new CountDownLatch(1);
@@ -170,6 +217,5 @@ public class EtlEnergyStore {
         }
         System.exit(0);
     }
-
 
 }
