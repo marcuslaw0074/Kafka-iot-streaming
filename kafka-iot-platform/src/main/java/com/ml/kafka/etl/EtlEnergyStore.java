@@ -59,12 +59,12 @@ kafka-console-producer \
   --property key.separator=":::"
 
 
-{"_t":"bms.type","id":"user3","itemType":"elec"}:::{"_t":"bms.etl","id":"user1","value":31.431,"timestamp":15934567,"status":"1"}
-{"_t":"bms.type","id":"user3","itemType":"elec"}:::{"_t":"bms.etl","id":"user1","value":41.431,"timestamp":15934567,"status":"1"}
-{"_t":"bms.type","id":"user3","itemType":"elec"}:::{"_t":"bms.etl","id":"user1","value":141.431,"timestamp":15934567,"status":"1"}
+{"_t":"bms.type","id":"user3","itemType":"elec"}:::{"_t":"bms.delta","id":"user1","value":31.431,"timestamp":15934567,"status":"1"}
+{"_t":"bms.type","id":"user3","itemType":"elec"}:::{"_t":"bms.delta","id":"user1","value":41.431,"timestamp":15944567,"status":"1"}
+{"_t":"bms.type","id":"user3","itemType":"elec"}:::{"_t":"bms.delta","id":"user1","value":141.431,"timestamp":15954567,"status":"1"}
+{"_t":"bms.type","id":"user3","itemType":"elec"}:::{"_t":"bms.delta","id":"user1","value":176.4431,"timestamp":15964567,"status":"1"}
 
-
-{"_t":"bms.type","id":"user2","itemType":"elec"}:::{"_t":"bms.etl","id":"user1","value":41.431,"timestamp":15934567,"status":"1"}
+{"_t":"bms.type","id":"user2","itemType":"elec"}:::{"_t":"bms.delta","id":"user1","value":41.431,"timestamp":15934567,"status":"1"}
 
 
 mvn exec:java -Dexec.mainClass=com.ml.kafka.etl.EtlEnergyStore
@@ -77,37 +77,30 @@ public class EtlEnergyStore {
 
     static final String stateStoreName = "etl-energy-store";
 
-    static public class EtlEnergyProcessor implements Processor<BMSDataType, BMSEtlData, BMSDataType, BMSEtlData> {
-        private KeyValueStore<BMSDataType, BMSEtlData> kvStore;
+    static public class EtlEnergyProcessor implements Processor<BMSDataType, BMSDeltaData, BMSDataType, BMSDeltaData> {
+        private KeyValueStore<BMSDataType, BMSDeltaData> kvStore;
 
-        private ProcessorContext<BMSDataType, BMSEtlData> context;
+        private ProcessorContext<BMSDataType, BMSDeltaData> context;
 
         @Override
-        public void init(final ProcessorContext<BMSDataType, BMSEtlData> context) {
+        public void init(final ProcessorContext<BMSDataType, BMSDeltaData> context) {
             this.context = context;
-            System.out.println("ST");
             kvStore = this.context.getStateStore(stateStoreName);
-            System.out.println("ED");
+            System.out.println("Initialized");
         }
 
         @Override
-        public void process(final Record<BMSDataType, BMSEtlData> record) {
-            System.out.println("START_KV");
-            System.out.println(kvStore);
-            final BMSEtlData oldValue = kvStore.get(record.key());
+        public void process(final Record<BMSDataType, BMSDeltaData> record) {
+            final BMSDeltaData oldValue = kvStore.get(record.key());
             if (oldValue == null) {
                 kvStore.put(record.key(), record.value());
-                System.out.println("NULL");
             } else {
-                System.out.println(record);
-                System.out.println("START_KV2");
-                final BMSEtlData currentValue = record.value();
-                System.out.println(oldValue.toString());
-                System.out.println(currentValue.toString());
-                System.out.println("START_KV3");
-                if (currentValue.value > oldValue.value) {
+                final BMSDeltaData currentValue = record.value();
+                if (currentValue.value >= oldValue.value) {
                     this.context.forward(new Record<>(record.key(),
-                            new BMSEtlData(currentValue.id, currentValue.value - oldValue.value, currentValue.timestamp,
+                            new BMSDeltaData(currentValue.id, currentValue.value - oldValue.value,
+                                    currentValue.timestamp,
+                                    currentValue.timestamp - oldValue.timestamp,
                                     1),
                             0));
                     kvStore.put(record.key(), currentValue);
@@ -143,19 +136,19 @@ public class EtlEnergyStore {
 
         Serde<BMSDataType> BMSDataTypeSerde = Serdes.serdeFrom(BMSDataTypeJsonSerializer, BMSDataTypeJsonDeserializer);
 
-        JSONDeserializer<BMSEtlData> BMSEtlDataJsonDeserializer = new JSONDeserializer<>(BMSEtlData.class);
-        JSONSerializer<BMSEtlData> BMSEtlDataJsonSerializer = new JSONSerializer<>();
+        JSONDeserializer<BMSDeltaData> BMSEtlDataJsonDeserializer = new JSONDeserializer<>(BMSDeltaData.class);
+        JSONSerializer<BMSDeltaData> BMSEtlDataJsonSerializer = new JSONSerializer<>();
 
-        Serde<BMSEtlData> BMSEtlDataSerde = Serdes.serdeFrom(BMSEtlDataJsonSerializer, BMSEtlDataJsonDeserializer);
+        Serde<BMSDeltaData> BMSEtlDataSerde = Serdes.serdeFrom(BMSEtlDataJsonSerializer, BMSEtlDataJsonDeserializer);
 
-        StoreBuilder<KeyValueStore<BMSDataType, BMSEtlData>> keyValueStoreBuilder = Stores.keyValueStoreBuilder(
+        StoreBuilder<KeyValueStore<BMSDataType, BMSDeltaData>> keyValueStoreBuilder = Stores.keyValueStoreBuilder(
                 Stores.persistentKeyValueStore(stateStoreName),
                 BMSDataTypeSerde,
                 BMSEtlDataSerde);
 
         builder.addStateStore(keyValueStoreBuilder);
 
-        final KStream<BMSDataType, BMSEtlData> stream = builder.stream(stream_name,
+        final KStream<BMSDataType, BMSDeltaData> stream = builder.stream(stream_name,
                 Consumed.with(new JSONSerde<>(), new JSONSerde<>()));
 
         stream.map((key, value) -> {
@@ -163,30 +156,6 @@ public class EtlEnergyStore {
             System.out.println(value.toString());
             return KeyValue.pair(key, value);
         })
-                // .process(() -> new ContextualProcessor<BMSDataType, BMSEtlData, BMSDataType,
-                // BMSEtlData>() {
-                // @Override
-                // public void process(Record<BMSDataType, BMSEtlData> record) {
-                // System.out.println(record.value().toString());
-                // System.out.println(context());
-                // final KeyValueStore<BMSDataType, BMSEtlData> kvStore =
-                // context().getStateStore(stateStoreName);
-                // System.out.println(kvStore);
-                // final BMSEtlData oldValue = kvStore.get(record.key());
-                // final BMSEtlData currentValue = record.value();
-                // System.out.println(oldValue.toString());
-                // System.out.println(currentValue.toString());
-                // if (currentValue.value > oldValue.value) {
-                // context().forward(new Record<>(record.key(),
-                // new BMSEtlData(currentValue.id, currentValue.value - oldValue.value,
-                // currentValue.timestamp, 1),
-                // 0));
-                // kvStore.put(record.key(), currentValue);
-                // }
-                // }
-                // }, Named.as(stateStoreName))
-
-                // .to(sink_name);
                 .process(() -> new EtlEnergyProcessor(), stateStoreName).map((key, value) -> {
                     System.out.println("_______");
                     System.out.println(key.toString());

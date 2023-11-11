@@ -61,9 +61,9 @@ func EnergyᚖMillsᚋMqttᚋClient(ctx context.Context) {
 									tool.Map(data,
 										func(d TimeSeriesPoint, i int) *sarama.ProducerMessage {
 											return &sarama.ProducerMessage{
-												Topic: "kafka-streams-kWh-raw-data",
+												Topic: "kafka-streams-etl-raw-data-store",
 												Key:   model.BMSDataTypeEncoder(d.Id, "elec"),
-												Value: model.BMSRawDataEncoder(d.Id, 1, d.Value),
+												Value: model.BMSDeltaDataEncoder(d.Id, 1, d.Value),
 											}
 										},
 									)...,
