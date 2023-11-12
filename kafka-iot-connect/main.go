@@ -9,7 +9,10 @@ import (
 	"github.com/gin-gonic/gin"
 	swaggerFiles "github.com/swaggo/files"
 	ginSwagger "github.com/swaggo/gin-swagger"
-) // gin-swagger middleware
+) 
+
+
+// gin-swagger middleware
 // swagger embed files
 
 // @title           Swagger Example API
@@ -31,6 +34,9 @@ import (
 
 // @externalDocs.description  OpenAPI
 // @externalDocs.url          https://swagger.io/resources/open-api/
+
+
+
 func main() {
 
 	// go func() {
@@ -47,7 +53,7 @@ func main() {
 	ctx := context.Background()
 	// go initializeMqttConnectClient(ctx)
 	go energy.EnergyᚖMillsᚋMqttᚋClient(ctx)
-	// go energy.EnergyᚖMillsᚋKafkaᚋClient(ctx)
+	go energy.EnergyᚖMillsᚋKafkaᚋClient(ctx)
 	// go initializeKafkaConnectClient(ctx)
 
 	r := gin.Default()

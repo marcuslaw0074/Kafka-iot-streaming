@@ -1,0 +1,20 @@
+version: '3.5'
+services:
+
+  kafka-stream-app:
+    container_name: kafka-stream-app
+    build:
+      context: ./
+      dockerfile: ./Dockerfile
+    network_mode: "host"
+    volumes:
+      - ./:/root/kafka-iot-platform/
+    deploy:
+      restart_policy:
+        condition: on-failure
+        max_attempts: 3
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "50m"
+    command: mvn exec:java -Dexec.mainClass=com.ml.kafka.etl.energy.EtlEnergyRealtime

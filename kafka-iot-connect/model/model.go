@@ -77,7 +77,7 @@ func BMSDeltaDataEncoder(id string, status int8, value float64) BMSDeltaData {
 		T:         "bms.delta",
 		Id:        id,
 		Value:     value,
-		Timestamp: time.Now().UTC().UnixMilli(),
+		Timestamp: time.Now().Add(time.Hour*5).UTC().UnixMilli(),
 		Status:    status,
 	}
 }

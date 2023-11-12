@@ -12,7 +12,9 @@ import com.ml.kafka.model.bms.*;
         @JsonSubTypes.Type(value = BMSRealtimeData.class, name = "bms.realtime"),
         @JsonSubTypes.Type(value = BMSAggregationData.class, name = "bms.aggregation"),
         @JsonSubTypes.Type(value = BMSEtlData.class, name = "bms.etl"),
-        @JsonSubTypes.Type(value = BMSDeltaData.class, name = "bms.delta")
+        @JsonSubTypes.Type(value = BMSDeltaData.class, name = "bms.delta"),
+        @JsonSubTypes.Type(value = BMSAggregationTenant.class, name = "bms.tenant"),
+        @JsonSubTypes.Type(value = BMSTenantTagging.class, name = "bms.tag.tenant")
 })
 public interface JSONSerdeCompatible {
 

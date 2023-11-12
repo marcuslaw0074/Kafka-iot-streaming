@@ -8,6 +8,7 @@ import (
 	"kafka-iot-connect/client/mqtt/centre"
 	logging "kafka-iot-connect/log"
 	"kafka-iot-connect/tool"
+	"time"
 
 	"github.com/IBM/sarama"
 	mq "github.com/eclipse/paho.mqtt.golang"
@@ -42,13 +43,14 @@ func EnergyᚖMillsᚋKafkaᚋClient(ctx context.Context) {
 					Id: "test-stream-02",
 					Topics: []mqtt.Topic{
 						{
-							Name: "etl/energy/bms/marcus/af94c736-8da1-4ab9-f5ee-08db213be062/8",
+							Name: "etl/energy",
 						},
 					},
 					IsActive: true,
 					CallbackAction: func(c mq.Client, b [][]byte, t []mqtt.Topic, i int) {
-						fmt.Printf("received messaged from topic: %s, message: %s\n", t[0].Name, b[0])
+						fmt.Printf("received messaged from topic: %s, message length: %d\n", t[0].Name, len(b))
 					},
+					WaitingTime: time.Second * 5,
 				},
 			},
 		},
@@ -59,8 +61,8 @@ func EnergyᚖMillsᚋKafkaᚋClient(ctx context.Context) {
 		go conf.Subscribe(log)
 		go conf.OnKaflaChannelHandler("test-stream-02", nil)
 		kc := consumer.InitializeKafkaConnectConsumer("localhost:9092", "3.3.2", "example", "range", true, true)
-		kc.Consume(context.Background(), "kafka-streams-kWh-raw-data", func(cm *sarama.ConsumerMessage) error {
-			conf.Publish(string(cm.Value), log, "etl/energy/bms/marcus/af94c736-8da1-4ab9-f5ee-08db213be062/8")
+		kc.Consume(context.Background(), "kafka-streams-etl-realtime-period-store", func(cm *sarama.ConsumerMessage) error {
+			conf.Publish(string(cm.Value), log, "etl/energy")
 			return nil
 		})
 	}

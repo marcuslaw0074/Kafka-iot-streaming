@@ -38,6 +38,8 @@ import com.ml.kafka.model.bms.json.JSONSerializer;
 
 /*
 
+docker exec -it kafka-broker bash   
+
 kafka-topics --create \
 --bootstrap-server localhost:9092 \
 --replication-factor 1 \
@@ -58,11 +60,19 @@ kafka-console-producer \
   --property parse.key=true \
   --property key.separator=":::"
 
+kafka-console-consumer --bootstrap-server localhost:9092 \
+--topic kafka-streams-etl-raw-data-store \
+--from-beginning \
+--formatter kafka.tools.DefaultMessageFormatter \
+--property print.timestamp=true \
+--property print.key=true \
+--property print.value=true
 
-{"_t":"bms.type","id":"user3","itemType":"elec"}:::{"_t":"bms.delta","id":"user1","value":31.431,"timestamp":15934567,"status":"1"}
-{"_t":"bms.type","id":"user3","itemType":"elec"}:::{"_t":"bms.delta","id":"user1","value":41.431,"timestamp":15944567,"status":"1"}
-{"_t":"bms.type","id":"user3","itemType":"elec"}:::{"_t":"bms.delta","id":"user1","value":141.431,"timestamp":15954567,"status":"1"}
-{"_t":"bms.type","id":"user3","itemType":"elec"}:::{"_t":"bms.delta","id":"user1","value":176.4431,"timestamp":15964567,"status":"1"}
+
+{"_t":"bms.type","id":"user3","itemType":"elec"}:::{"_t":"bms.delta","id":"user1","value":31.431,"timestamp":1699760626130,"status":"1"}
+{"_t":"bms.type","id":"user3","itemType":"elec"}:::{"_t":"bms.delta","id":"user1","value":41.431,"timestamp":1699766626130,"status":"1"}
+{"_t":"bms.type","id":"user3","itemType":"elec"}:::{"_t":"bms.delta","id":"user1","value":141.431,"timestamp":1699776626130,"status":"1"}
+{"_t":"bms.type","id":"user3","itemType":"elec"}:::{"_t":"bms.delta","id":"user1","value":176.4431,"timestamp":1699786626130,"status":"1"}
 
 {"_t":"bms.type","id":"user2","itemType":"elec"}:::{"_t":"bms.delta","id":"user1","value":41.431,"timestamp":15934567,"status":"1"}
 
@@ -101,7 +111,7 @@ public class EtlEnergyStore {
                             new BMSDeltaData(currentValue.id, currentValue.value - oldValue.value,
                                     currentValue.timestamp,
                                     currentValue.timestamp - oldValue.timestamp,
-                                    1),
+                                    1, ""),
                             0));
                     kvStore.put(record.key(), currentValue);
                 }

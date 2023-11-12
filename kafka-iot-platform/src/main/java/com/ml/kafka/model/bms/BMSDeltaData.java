@@ -8,6 +8,7 @@ import com.ml.kafka.model.bms.json.JSONSerdeCompatible;
 final public class BMSDeltaData extends BMSData implements JSONSerdeCompatible {
     public double value;
     public String id;
+    public String timeType;
     public Long timestamp;
     public Long timestampDelta;
     public int status;
@@ -15,11 +16,12 @@ final public class BMSDeltaData extends BMSData implements JSONSerdeCompatible {
     public BMSDeltaData() {
     }
 
-    public BMSDeltaData(String id, double value, Long timestamp, Long timestampDelta, int status) {
+    public BMSDeltaData(String id, double value, Long timestamp, Long timestampDelta, int status, String timeType) {
         this.id = id;
         this.value = value;
         this.timestamp = timestamp;
         this.timestampDelta = timestampDelta;
         this.status = status;
+        this.timeType = timeType;
     }
 }
