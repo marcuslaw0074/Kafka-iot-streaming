@@ -1,33 +1,55 @@
 package com.ml.kafka.stream.processor;
 
 import java.time.Duration;
+import java.util.HashMap;
 
+import org.apache.kafka.streams.KeyValue;
+import org.apache.kafka.streams.processor.Cancellable;
 import org.apache.kafka.streams.processor.PunctuationType;
-import org.apache.kafka.streams.processor.Punctuator;
 import org.apache.kafka.streams.processor.api.Processor;
 import org.apache.kafka.streams.processor.api.ProcessorContext;
 import org.apache.kafka.streams.processor.api.Record;
+import org.apache.kafka.streams.state.KeyValueIterator;
 import org.apache.kafka.streams.state.KeyValueStore;
 
 import com.ml.kafka.model.bms.BMSDataType;
 import com.ml.kafka.model.bms.BMSDeltaData;
+import com.ml.kafka.model.bms.BMSMapData;
+import com.ml.kafka.stream.punctuator.EtlGroupPunctuator;
 
-final public class EtlGroupProcessor implements Processor<BMSDataType, BMSDeltaData, BMSDataType, BMSDeltaData> {
+final public class EtlGroupProcessor implements Processor<BMSDataType, BMSDeltaData, BMSDataType, BMSMapData> {
     private KeyValueStore<BMSDataType, BMSDeltaData> kvStore;
+    // private KeyValueStore<String, Long> ckvStore;
 
-    private ProcessorContext<BMSDataType, BMSDeltaData> context;
+    private ProcessorContext<BMSDataType, BMSMapData> context;
 
     private String stateStoreName;
+    // private String contextStateStoreName;
 
-    public EtlGroupProcessor(String stateStoreName) {
+    private Cancellable can = null;
+
+    public EtlGroupProcessor(String stateStoreName, String contextStateStoreName) {
+        System.out.println(this);
         this.stateStoreName = stateStoreName;
+        // this.contextStateStoreName = contextStateStoreName;
     }
 
     @Override
-    public void init(final ProcessorContext<BMSDataType, BMSDeltaData> context) {
+    public void init(final ProcessorContext<BMSDataType, BMSMapData> context) {
         this.context = context;
         kvStore = this.context.getStateStore(this.stateStoreName);
+        // ckvStore = this.context.getStateStore(this.contextStateStoreName);
+        // ckvStore.delete("context-lock");
+        // System.out.println(ckvStore.get("context-lock"));
         System.out.println(String.format("Initialized proccessor with state store: %s", this.stateStoreName));
+        // System.out.println(
+        // String.format("Initialized proccessor with context state store: %s",
+        // this.contextStateStoreName));
+    }
+
+    public void cancel() {
+        this.can.cancel();
+        this.can = null;
     }
 
     @Override
@@ -35,19 +57,36 @@ final public class EtlGroupProcessor implements Processor<BMSDataType, BMSDeltaD
         System.out.println("Start");
         final BMSDeltaData oldValue = kvStore.get(record.key());
         final BMSDeltaData currentValue = record.value();
-        System.out.println("group");
-        System.out.println(oldValue);
-        System.out.println(currentValue);
 
         if (oldValue == null) {
             kvStore.put(record.key(), record.value());
         } else {
-            this.context.schedule(Duration.ofSeconds(10), PunctuationType.WALL_CLOCK_TIME, new Punctuator() {
-                @Override
-                public void punctuate(long timestamp) {
-                    // TODO Auto-generated method stub
-                }
-            });
+            // Long lock = this.ckvStore.get("context-lock");
+            if (this.can == null) {
+                // this.ckvStore.put("context-lock", 1L);
+                this.can = this.context.schedule(Duration.ofSeconds(10), PunctuationType.WALL_CLOCK_TIME,
+                        new EtlGroupPunctuator() {
+                            @Override
+                            public void punctuate(long timestamp) {
+                                KeyValueIterator<BMSDataType, BMSDeltaData> kvIter = kvStore.all();
+                                Record<BMSDataType, BMSMapData> newRecord;
+                                // ckvStore.delete("context-lock");
+                                HashMap<String, Double> map = new HashMap<>();
+                                KeyValue<BMSDataType, BMSDeltaData> var;
+                                while (kvIter.hasNext()) {
+                                    var = kvIter.next();
+                                    System.out.print(var.value);
+                                    map.put(var.value.id, var.value.value);
+                                }
+                                newRecord = new Record<BMSDataType, BMSMapData>(new BMSDataType(), new BMSMapData(map, timestamp, 1), timestamp);
+                                context.forward(newRecord);
+                                cancel();
+                                System.out.println("TEST");
+                            }
+                        });
+            } else {
+
+            }
             kvStore.put(record.key(), currentValue);
         }
     }
