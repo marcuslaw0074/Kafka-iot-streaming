@@ -78,10 +78,12 @@ final public class EtlGroupProcessor implements Processor<BMSDataType, BMSDeltaD
                                     System.out.print(var.value);
                                     map.put(var.value.id, var.value.value);
                                 }
+                                kvIter.close();
                                 newRecord = new Record<BMSDataType, BMSMapData>(new BMSDataType(), new BMSMapData(map, timestamp, 1), timestamp);
                                 context.forward(newRecord);
                                 cancel();
                                 System.out.println("TEST");
+                                context.commit();
                             }
                         });
             } else {
