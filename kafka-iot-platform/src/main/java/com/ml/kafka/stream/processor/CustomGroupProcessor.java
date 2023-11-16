@@ -19,7 +19,7 @@ public abstract class CustomGroupProcessor<KIn, VIn, KOut, VOut>
     private KeyValueStore<KIn, VIn> kvStore;
     private Cancellable can = null;
 
-    public abstract Record<KOut, VOut> generatRecord(KeyValueIterator<KIn, VIn> iter);
+    public abstract Record<KOut, VOut> generatRecord(long timestamp, KeyValueIterator<KIn, VIn> iter);
 
     @Override
     public void init(ProcessorContext<KOut, VOut> context) {
@@ -52,7 +52,7 @@ public abstract class CustomGroupProcessor<KIn, VIn, KOut, VOut>
                 @Override
                 public void punctuate(long timestamp) {
                     KeyValueIterator<KIn, VIn> kvIter = kvStore.all();
-                    Record<KOut, VOut> newRecord = generatRecord(kvIter);
+                    Record<KOut, VOut> newRecord = generatRecord(timestamp, kvIter);
                     kvIter.close();
                     context.forward(newRecord);
                     context.commit();

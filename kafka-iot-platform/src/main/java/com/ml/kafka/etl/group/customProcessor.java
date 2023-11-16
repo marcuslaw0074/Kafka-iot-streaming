@@ -1,5 +1,8 @@
 package com.ml.kafka.etl.group;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 import java.util.Properties;
 import java.util.concurrent.CountDownLatch;
 
@@ -22,6 +25,7 @@ import org.apache.kafka.streams.processor.api.Record;
 
 import com.ml.kafka.model.bms.BMSDataType;
 import com.ml.kafka.model.bms.BMSDeltaData;
+import com.ml.kafka.model.bms.BMSEtlData;
 import com.ml.kafka.model.bms.BMSMapData;
 import com.ml.kafka.model.bms.BMSTenantTagging;
 import com.ml.kafka.model.bms.json.JSONDeserializer;
@@ -92,9 +96,19 @@ public class customProcessor {
                 .process(() -> new CustomGroupProcessor<BMSDataType, BMSDeltaData, BMSDataType, BMSMapData>(
                         stateStoreName) {
                     @Override
-                    public Record<BMSDataType, BMSMapData> generatRecord(
-                            KeyValueIterator<BMSDataType, BMSDeltaData> iter) {
-                        return null;
+                    public Record<BMSDataType, BMSMapData> generatRecord(long timestamp,
+                            KeyValueIterator<BMSDataType, BMSDeltaData> kvIter) {
+                        HashMap<String, Double> map = new HashMap<>();
+                        List<BMSEtlData> d = new ArrayList<>();
+                        KeyValue<BMSDataType, BMSDeltaData> var;
+                        while (kvIter.hasNext()) {
+                            var = kvIter.next();
+                            System.out.print(var.value);
+                            map.put(var.value.id, var.value.value);
+                            d.add(new BMSEtlData(var.value.id, var.value.value, timestamp, 1));
+                        }
+                        BMSMapData m = new BMSMapData(map, timestamp, 1, d);
+                        return new Record<BMSDataType, BMSMapData>(new BMSDataType(), m, timestamp);
                     }
                 },
                         stateStoreName, contextStateStoreName)
