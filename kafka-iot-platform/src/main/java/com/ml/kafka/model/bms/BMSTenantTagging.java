@@ -11,4 +11,7 @@ public class BMSTenantTagging extends BMSData implements JSONSerdeCompatible {
     public String projectId;
     public int status;
 
+    public BMSTenantTagging() {
+    }
+
 }

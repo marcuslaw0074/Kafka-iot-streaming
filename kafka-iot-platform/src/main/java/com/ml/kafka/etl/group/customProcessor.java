@@ -14,82 +14,22 @@ import org.apache.kafka.streams.kstream.Consumed;
 import org.apache.kafka.streams.kstream.KStream;
 import org.apache.kafka.streams.kstream.KTable;
 import org.apache.kafka.streams.kstream.Materialized;
-import org.apache.kafka.streams.kstream.ValueMapper;
+import org.apache.kafka.streams.state.KeyValueIterator;
 import org.apache.kafka.streams.state.KeyValueStore;
 import org.apache.kafka.streams.state.StoreBuilder;
 import org.apache.kafka.streams.state.Stores;
+import org.apache.kafka.streams.processor.api.Record;
 
 import com.ml.kafka.model.bms.BMSDataType;
 import com.ml.kafka.model.bms.BMSDeltaData;
-import com.ml.kafka.model.bms.BMSTenantKey;
+import com.ml.kafka.model.bms.BMSMapData;
 import com.ml.kafka.model.bms.BMSTenantTagging;
-import com.ml.kafka.model.bms.BMSTenantTaggingData;
 import com.ml.kafka.model.bms.json.JSONDeserializer;
 import com.ml.kafka.model.bms.json.JSONSerde;
 import com.ml.kafka.model.bms.json.JSONSerializer;
-import com.ml.kafka.stream.processor.EtlGroupProcessor;
+import com.ml.kafka.stream.processor.CustomGroupProcessor;
 
-/*
- * 
-
-docker exec -it kafka-broker bash   
-
-
-mvn exec:java -Dexec.mainClass=com.ml.kafka.etl.EtlSlidingWindow
-
-kafka-topics --create \
---bootstrap-server localhost:9092 \
---replication-factor 1 \
---partitions 1 \
---topic kafka-stream-group
-
-kafka-topics --create \
---bootstrap-server localhost:9092 \
---replication-factor 1 \
---partitions 1 \
---topic kafka-sink-group
-
-kafka-topics --create \
---bootstrap-server localhost:9092 \
---replication-factor 1 \
---partitions 1 \
---topic kafka-table-group
-
-kafka-console-producer \
-  --topic kafka-stream-group \
-  --bootstrap-server localhost:9092 \
-  --property parse.key=true \
-  --property key.separator=":::"
-
-{"_t":"bms.type","id":"user1","itemType":"elec"}:::{"_t":"bms.delta","id":"user1","value":31.431,"timestamp":15934567,"status":"1"}
-{"_t":"bms.type","id":"user2","itemType":"elec"}:::{"_t":"bms.delta","id":"user2","value":12.43134,"timestamp":15934567,"status":"1"}
-{"_t":"bms.type","id":"user3","itemType":"elec"}:::{"_t":"bms.delta","id":"user3","value":321.431,"timestamp":15934567,"status":"1"}
-{"_t":"bms.type","id":"user4","itemType":"elec"}:::{"_t":"bms.delta","id":"user4","value":-120.4931,"timestamp":15934567,"status":"1"}
-
-kafka-console-producer \
-  --topic kafka-table-group \
-  --bootstrap-server localhost:9092 \
-  --property parse.key=true \
-  --property key.separator=":::"
-
-{"_t":"bms.type","id":"user4","itemType":"elec"}:::{"_t":"bms.tag.tenant","bmsId":"b1","itemType":"elec","tenantId":"t1","projectId":"p1","status":"1"}
-
-
-kafka-console-consumer --bootstrap-server localhost:9092 \
---topic kafka-streams-bms-realtime-data \
---from-beginning \
---formatter kafka.tools.DefaultMessageFormatter \
---property print.timestamp=true \
---property print.key=true \
---property print.value=true
-
-
- * 
- * 
- */
-
-@SuppressWarnings({ "WeakerAccess", "unused" })
-public class EtlProcessorGroup {
+public class customProcessor {
     static final String stateStoreName = "etl-processor-group-store";
     static final String contextStateStoreName = "etl-processor-context-store";
     static final String tableStoreName = "kafka-table-store";
@@ -133,22 +73,30 @@ public class EtlProcessorGroup {
                 Materialized.<BMSDataType, BMSTenantTagging, KeyValueStore<Bytes, byte[]>>as(tableStoreName));
 
         tenantKTable
-        .filter((key, value) -> {
-            System.out.println(key);
-            System.out.println(value);
-            return true;
-        });
+                .filter((key, value) -> {
+                    System.out.println(key);
+                    System.out.println(value);
+                    return true;
+                });
 
         stream
                 .map((key, value) -> {
                     System.out.println(value);
                     return KeyValue.pair(key, value);
                 })
-                // .leftJoin(tenantKTable, (key, value) -> {
-                //     return key;
-                //     // return new BMSTenantTaggingData(key.id, value.tenantId, value.itemType, value.projectId, key.status, key.value, key.timestamp);
-                // })
-                .process(() -> new EtlGroupProcessor(stateStoreName, contextStateStoreName),
+                .leftJoin(tenantKTable, (key, value) -> {
+                    return key;
+                    // return new BMSTenantTaggingData(key.id, value.tenantId, value.itemType,
+                    // value.projectId, key.status, key.value, key.timestamp);
+                })
+                .process(() -> new CustomGroupProcessor<BMSDataType, BMSDeltaData, BMSDataType, BMSMapData>(
+                        stateStoreName) {
+                    @Override
+                    public Record<BMSDataType, BMSMapData> generatRecord(
+                            KeyValueIterator<BMSDataType, BMSDeltaData> iter) {
+                        return null;
+                    }
+                },
                         stateStoreName, contextStateStoreName)
                 .map((key, value) -> {
                     System.out.println("_______");

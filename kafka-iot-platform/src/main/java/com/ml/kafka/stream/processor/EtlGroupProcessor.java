@@ -1,7 +1,9 @@
 package com.ml.kafka.stream.processor;
 
 import java.time.Duration;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 import org.apache.kafka.streams.KeyValue;
 import org.apache.kafka.streams.processor.Cancellable;
@@ -14,6 +16,7 @@ import org.apache.kafka.streams.state.KeyValueStore;
 
 import com.ml.kafka.model.bms.BMSDataType;
 import com.ml.kafka.model.bms.BMSDeltaData;
+import com.ml.kafka.model.bms.BMSEtlData;
 import com.ml.kafka.model.bms.BMSMapData;
 import com.ml.kafka.stream.punctuator.EtlGroupPunctuator;
 
@@ -29,7 +32,7 @@ final public class EtlGroupProcessor implements Processor<BMSDataType, BMSDeltaD
     private Cancellable can = null;
 
     public EtlGroupProcessor(String stateStoreName, String contextStateStoreName) {
-        System.out.println(this);
+        // System.out.println(this);
         this.stateStoreName = stateStoreName;
         // this.contextStateStoreName = contextStateStoreName;
     }
@@ -72,14 +75,17 @@ final public class EtlGroupProcessor implements Processor<BMSDataType, BMSDeltaD
                                 Record<BMSDataType, BMSMapData> newRecord;
                                 // ckvStore.delete("context-lock");
                                 HashMap<String, Double> map = new HashMap<>();
+                                List<BMSEtlData> d = new ArrayList<>();
                                 KeyValue<BMSDataType, BMSDeltaData> var;
                                 while (kvIter.hasNext()) {
                                     var = kvIter.next();
                                     System.out.print(var.value);
                                     map.put(var.value.id, var.value.value);
+                                    d.add(new BMSEtlData(var.value.id, var.value.value, timestamp, 1));
                                 }
+                                BMSMapData m = new BMSMapData(map, timestamp, 1, d);
                                 kvIter.close();
-                                newRecord = new Record<BMSDataType, BMSMapData>(new BMSDataType(), new BMSMapData(map, timestamp, 1), timestamp);
+                                newRecord = new Record<BMSDataType, BMSMapData>(new BMSDataType(), m, timestamp);
                                 context.forward(newRecord);
                                 cancel();
                                 System.out.println("TEST");

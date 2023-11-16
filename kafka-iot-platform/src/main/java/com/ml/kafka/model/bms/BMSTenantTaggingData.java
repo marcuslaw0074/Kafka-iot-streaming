@@ -12,4 +12,19 @@ public class BMSTenantTaggingData extends BMSData implements JSONSerdeCompatible
     public int status;
     public double value;
     public Long timestamp;
+
+    public BMSTenantTaggingData() {
+    }
+
+    public BMSTenantTaggingData(String bmsId, String tenantId, String itemType, String projectId, int status,
+            double value, Long timestamp) {
+        this.bmsId = bmsId;
+        this.tenantId = tenantId;
+        this.itemType = itemType;
+        this.projectId = projectId;
+        this.status = status;
+        this.value = value;
+        this.timestamp = timestamp;
+    }
+
 }
