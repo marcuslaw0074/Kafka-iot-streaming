@@ -33,7 +33,7 @@ import com.ml.kafka.model.bms.json.JSONSerde;
 import com.ml.kafka.model.bms.json.JSONSerializer;
 import com.ml.kafka.stream.processor.CustomGroupProcessor;
 
-public class customProcessor {
+public class CustomProcessor {
     static final String stateStoreName = "etl-processor-group-store";
     static final String contextStateStoreName = "etl-processor-context-store";
     static final String tableStoreName = "kafka-table-store";

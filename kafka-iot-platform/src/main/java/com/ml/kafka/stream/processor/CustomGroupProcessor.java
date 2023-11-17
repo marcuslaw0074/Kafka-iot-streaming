@@ -4,12 +4,13 @@ import java.time.Duration;
 
 import org.apache.kafka.streams.processor.Cancellable;
 import org.apache.kafka.streams.processor.PunctuationType;
-import org.apache.kafka.streams.processor.Punctuator;
 import org.apache.kafka.streams.processor.api.Processor;
 import org.apache.kafka.streams.processor.api.ProcessorContext;
 import org.apache.kafka.streams.processor.api.Record;
 import org.apache.kafka.streams.state.KeyValueIterator;
 import org.apache.kafka.streams.state.KeyValueStore;
+
+import com.ml.kafka.stream.punctuator.CustomGroupPunctuator;
 
 public abstract class CustomGroupProcessor<KIn, VIn, KOut, VOut>
         implements Processor<KIn, VIn, KOut, VOut> {
@@ -48,17 +49,18 @@ public abstract class CustomGroupProcessor<KIn, VIn, KOut, VOut>
 
     public synchronized void addScheduler() {
         if (this.can == null) {
-            this.can = this.context.schedule(Duration.ofSeconds(10), PunctuationType.WALL_CLOCK_TIME, new Punctuator() {
-                @Override
-                public void punctuate(long timestamp) {
-                    KeyValueIterator<KIn, VIn> kvIter = kvStore.all();
-                    Record<KOut, VOut> newRecord = generatRecord(timestamp, kvIter);
-                    kvIter.close();
-                    context.forward(newRecord);
-                    context.commit();
-                    cancel();
-                }
-            });
+            this.can = this.context.schedule(Duration.ofSeconds(10), PunctuationType.WALL_CLOCK_TIME,
+                    new CustomGroupPunctuator() {
+                        @Override
+                        public void punctuate(long timestamp) {
+                            KeyValueIterator<KIn, VIn> kvIter = kvStore.all();
+                            Record<KOut, VOut> newRecord = generatRecord(timestamp, kvIter);
+                            kvIter.close();
+                            context.forward(newRecord);
+                            context.commit();
+                            cancel();
+                        }
+                    });
         }
     }
 
